@@ -1,6 +1,6 @@
 /****************************************************************************/
 /*! @file
-@brief XInput ƒfƒoƒCƒX
+@brief XInput ãƒ‡ãƒã‚¤ã‚¹
 
 -----------------------------------------------------------------------------
 	Copyright (C) 2008 Takenori Imoto. All rights reserved.
@@ -10,23 +10,23 @@
 @date		2008/01/21
 @note
 
-ƒ\[ƒXƒR[ƒhŒ`®‚Å‚ ‚êƒoƒCƒiƒŠŒ`®‚Å‚ ‚êA•ÏX‚Ì—L–³‚ÉŠÖ‚í‚ç‚¸AˆÈ‰º‚ÌğŒ‚ğ–
-‚½‚·ŒÀ‚è‚É‚¨‚¢‚ÄAÄ”z•z‚¨‚æ‚Ñg—p‚ğ‹–‰Â‚µ‚Ü‚·:
+ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å½¢å¼ã§ã‚ã‚Œãƒã‚¤ãƒŠãƒªå½¢å¼ã§ã‚ã‚Œã€å¤‰æ›´ã®æœ‰ç„¡ã«é–¢ã‚ã‚‰ãšã€ä»¥ä¸‹ã®æ¡ä»¶ã‚’æº€
+ãŸã™é™ã‚Šã«ãŠã„ã¦ã€å†é…å¸ƒãŠã‚ˆã³ä½¿ç”¨ã‚’è¨±å¯ã—ã¾ã™:
 
-   1. ƒ\[ƒXƒR[ƒhŒ`®‚ÅÄ”z•z‚·‚éê‡Aã‹L’˜ìŒ •\¦A–{ğŒ‘‚¨‚æ‚Ñ‰º‹LÓ”C
-      ŒÀ’è‹K’è‚ğ•K‚¸ŠÜ‚ß‚Ä‚­‚¾‚³‚¢B
-   2. ƒoƒCƒiƒŠŒ`®‚ÅÄ”z•z‚·‚éê‡Aã‹L’˜ìŒ •\¦A–{ğŒ‘‚¨‚æ‚Ñ‰º‹LÓ”CŒÀ’è
-      ‹K’è‚ğA”z•z•¨‚Æ‚Æ‚à‚É’ñ‹Ÿ‚³‚ê‚é•¶‘‚¨‚æ‚Ñ‘¼‚Ì‘—¿‚É•K‚¸ŠÜ‚ß‚Ä‚­‚¾‚³‚¢B
+   1. ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å½¢å¼ã§å†é…å¸ƒã™ã‚‹å ´åˆã€ä¸Šè¨˜è‘—ä½œæ¨©è¡¨ç¤ºã€æœ¬æ¡ä»¶æ›¸ãŠã‚ˆã³ä¸‹è¨˜è²¬ä»»
+      é™å®šè¦å®šã‚’å¿…ãšå«ã‚ã¦ãã ã•ã„ã€‚
+   2. ãƒã‚¤ãƒŠãƒªå½¢å¼ã§å†é…å¸ƒã™ã‚‹å ´åˆã€ä¸Šè¨˜è‘—ä½œæ¨©è¡¨ç¤ºã€æœ¬æ¡ä»¶æ›¸ãŠã‚ˆã³ä¸‹è¨˜è²¬ä»»é™å®š
+      è¦å®šã‚’ã€é…å¸ƒç‰©ã¨ã¨ã‚‚ã«æä¾›ã•ã‚Œã‚‹æ–‡æ›¸ãŠã‚ˆã³ä»–ã®è³‡æ–™ã«å¿…ãšå«ã‚ã¦ãã ã•ã„ã€‚
 
-–{ƒ\ƒtƒgƒEƒFƒA‚Í’˜ìŒ Ò‚É‚æ‚Á‚ÄAhŒ»ó‚Ì‚Ü‚Üh’ñ‹Ÿ‚³‚ê‚é‚à‚Ì‚Æ‚µ‚Ü‚·B–{ƒ\ƒt
-ƒgƒEƒFƒA‚É‚Â‚¢‚Ä‚ÍA–¾¦–Ù¦‚ğ–â‚í‚¸A¤—p•i‚Æ‚µ‚Ä’Êí‚»‚È‚¦‚é‚×‚«•i¿‚ğ‚»‚È‚¦
-‚Ä‚¢‚é‚Æ‚Ì•ÛØ‚àA“Á’è‚Ì–Ú“I‚É“K‡‚·‚é‚Æ‚Ì•ÛØ‚ğŠÜ‚ßA‰½‚Ì•ÛØ‚à‚È‚³‚ê‚Ü‚¹‚ñB
-–—R‚Ì‚¢‚©‚ñ‚ğ–â‚í‚¸A‘¹ŠQ”­¶‚ÌŒ´ˆö‚¢‚©‚ñ‚ğ–â‚í‚¸AŠ‚ÂAÓ”C‚Ìª‹’‚ªŒ_–ñ‚Å‚ 
-‚é‚©ŒµŠiÓ”C‚Å‚ ‚é‚© (‰ß¸‚»‚Ì‘¼) •s–@sˆ×‚Å‚ ‚é‚©‚ğ–â‚í‚¸A’˜ìŒ Ò‚Í‰¼‚É‚»‚Ì
-‚æ‚¤‚È‘¹ŠQ‚ª”­¶‚·‚é‰Â”\«‚ğ’m‚ç‚³‚ê‚Ä‚¢‚½‚Æ‚µ‚Ä‚àA–{ƒ\ƒtƒgƒEƒFƒA‚Ìg—p‚©‚ç”­
-¶‚µ‚½’¼Ú‘¹ŠQAŠÔÚ‘¹ŠQA‹ô”­“I‚È‘¹ŠQA“Á•Ê‘¹ŠQA’¦”±“I‘¹ŠQ‚Ü‚½‚ÍŒ‹‰Ê‘¹ŠQ‚Ì‚¢
-‚¸‚ê‚É‘Î‚µ‚Ä‚à (‘ã‘Ö•i‚Ü‚½‚Í ƒT[ƒrƒX‚Ì’ñ‹Ÿ;g—p‹@‰ïAƒf[ƒ^‚Ü‚½‚Í—˜‰v‚Ì‘¹¸‚Ì
-•â; ‚Ü‚½‚ÍA‹Æ–±‚Ì’†’f‚É‘Î‚·‚é•â‚ğŠÜ‚ß)Ó”C‚ğ‚¢‚Á‚³‚¢•‰‚¢‚Ü‚¹‚ñB
+æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯è‘—ä½œæ¨©è€…ã«ã‚ˆã£ã¦ã€â€ç¾çŠ¶ã®ã¾ã¾â€æä¾›ã•ã‚Œã‚‹ã‚‚ã®ã¨ã—ã¾ã™ã€‚æœ¬ã‚½ãƒ•
+ãƒˆã‚¦ã‚§ã‚¢ã«ã¤ã„ã¦ã¯ã€æ˜ç¤ºé»™ç¤ºã‚’å•ã‚ãšã€å•†ç”¨å“ã¨ã—ã¦é€šå¸¸ããªãˆã‚‹ã¹ãå“è³ªã‚’ããªãˆ
+ã¦ã„ã‚‹ã¨ã®ä¿è¨¼ã‚‚ã€ç‰¹å®šã®ç›®çš„ã«é©åˆã™ã‚‹ã¨ã®ä¿è¨¼ã‚’å«ã‚ã€ä½•ã®ä¿è¨¼ã‚‚ãªã•ã‚Œã¾ã›ã‚“ã€‚
+äº‹ç”±ã®ã„ã‹ã‚“ã‚’å•ã‚ãšã€æå®³ç™ºç”Ÿã®åŸå› ã„ã‹ã‚“ã‚’å•ã‚ãšã€ä¸”ã¤ã€è²¬ä»»ã®æ ¹æ‹ ãŒå¥‘ç´„ã§ã‚
+ã‚‹ã‹å³æ ¼è²¬ä»»ã§ã‚ã‚‹ã‹ (éå¤±ãã®ä»–) ä¸æ³•è¡Œç‚ºã§ã‚ã‚‹ã‹ã‚’å•ã‚ãšã€è‘—ä½œæ¨©è€…ã¯ä»®ã«ãã®
+ã‚ˆã†ãªæå®³ãŒç™ºç”Ÿã™ã‚‹å¯èƒ½æ€§ã‚’çŸ¥ã‚‰ã•ã‚Œã¦ã„ãŸã¨ã—ã¦ã‚‚ã€æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ä½¿ç”¨ã‹ã‚‰ç™º
+ç”Ÿã—ãŸç›´æ¥æå®³ã€é–“æ¥æå®³ã€å¶ç™ºçš„ãªæå®³ã€ç‰¹åˆ¥æå®³ã€æ‡²ç½°çš„æå®³ã¾ãŸã¯çµæœæå®³ã®ã„
+ãšã‚Œã«å¯¾ã—ã¦ã‚‚ (ä»£æ›¿å“ã¾ãŸã¯ ã‚µãƒ¼ãƒ“ã‚¹ã®æä¾›;ä½¿ç”¨æ©Ÿä¼šã€ãƒ‡ãƒ¼ã‚¿ã¾ãŸã¯åˆ©ç›Šã®æå¤±ã®
+è£œå„Ÿ; ã¾ãŸã¯ã€æ¥­å‹™ã®ä¸­æ–­ã«å¯¾ã™ã‚‹è£œå„Ÿã‚’å«ã‚)è²¬ä»»ã‚’ã„ã£ã•ã„è² ã„ã¾ã›ã‚“ã€‚
 
 *****************************************************************************/
 
@@ -58,7 +58,7 @@ public:
 	typedef DWORD (WINAPI *FuncXInputSetState)( DWORD dwUserIndex, XINPUT_VIBRATION* pVibration );
 	typedef DWORD (WINAPI *FuncXInputGetCapabilities)( DWORD dwUserIndex, DWORD dwFlags, XINPUT_CAPABILITIES* pCapabilities );
 	typedef void (WINAPI *FuncXInputEnable)( BOOL enable );
-// ˆÈ‰º‚Ìƒƒ\ƒbƒh‚Íg‚í‚È‚¢
+// ä»¥ä¸‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä½¿ã‚ãªã„
 //	typedef DWORD (WINAPI *FuncXInputGetDSoundAudioDeviceGuids)( DWORD dwUserIndex, GUID* pDSoundRenderGuid, GUID* pDSoundCaptureGuid );
 //	typedef DWORD (WINAPI *FuncXInputGetBatteryInformation)( DWORD dwUserIndex, BYTE devType, XINPUT_BATTERY_INFORMATION* pBatteryInformation );
 //	typedef DWORD (WINAPI *FuncXInputGetKeystroke)( DWORD dwUserIndex, DWORD dwReserved, PXINPUT_KEYSTROKE pKeystroke );
@@ -70,7 +70,7 @@ public:
 	static FuncXInputSetState						SetState;
 	static FuncXInputGetCapabilities				GetCapabilities;
 	static FuncXInputEnable							Enable;
-// ˆÈ‰º‚Ìƒƒ\ƒbƒh‚Íg‚í‚È‚¢
+// ä»¥ä¸‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä½¿ã‚ãªã„
 //	static FuncXInputGetDSoundAudioDeviceGuids		GetDSoundAudioDeviceGuids;
 //	static FuncXInputGetBatteryInformation			GetBatteryInformation;
 //	static FuncXInputGetKeystroke					GetKeystroke;
@@ -82,7 +82,7 @@ xinput::FuncXInputSetState						xinput::SetState = NULL;
 xinput::FuncXInputGetCapabilities				xinput::GetCapabilities = NULL;
 xinput::FuncXInputEnable						xinput::Enable = NULL;
 
-// ˆÈ‰º‚Ìƒƒ\ƒbƒh‚Íg‚í‚È‚¢
+// ä»¥ä¸‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä½¿ã‚ãªã„
 //xinput::FuncXInputGetDSoundAudioDeviceGuids		xinput::GetDSoundAudioDeviceGuids = NULL;
 //xinput::FuncXInputGetBatteryInformation			xinput::GetBatteryInformation = NULL;
 //xinput::FuncXInputGetKeystroke					xinput::GetKeystroke = NULL;
@@ -92,14 +92,14 @@ bool xinput::Initialize()
 	if( !GetState || !SetState || !GetCapabilities || !Enable ) {
 		return LoadFunctions();
 	}
-	return true;	// “Ç‚İ‚İÏ‚İ
+	return true;	// èª­ã¿è¾¼ã¿æ¸ˆã¿
 }
 bool xinput::CheckLoading()
 {
 	if( dll_.IsLoaded() == false ) {
 		dll_.Load( "xinput1_3.dll" );
 	}
-// ŒÃ‚¢‚Ì‚à‚·H
+// å¤ã„ã®ã‚‚è©¦ã™ï¼Ÿ
 #if 0
 	if( dll_.IsLoaded() == false ) {
 		dll_.Load( "xinput1_2.dll" );
@@ -128,7 +128,7 @@ bool xinput::LoadFunctions()
 	Enable = (FuncXInputEnable)dll_.GetProcAddress( "XInputEnable" );
 	if( !Enable ) { return false; }
 
-// ˆÈ‰º‚Ìƒƒ\ƒbƒh‚Íg‚í‚È‚¢
+// ä»¥ä¸‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä½¿ã‚ãªã„
 /*
 	GetDSoundAudioDeviceGuids = (FuncXInputGetDSoundAudioDeviceGuids)dll_.GetProcAddress( "XInputGetDSoundAudioDeviceGuids" );
 	if( !GetDSoundAudioDeviceGuids ) { return false; }
@@ -169,12 +169,12 @@ void CXInputDevice::Update()
 			is_connected_ = (ret != ERROR_DEVICE_NOT_CONNECTED);
 		}
 		if( !is_connected_ ) {
-			// ”²‚©‚ê‚½–Í—lBƒ[ƒƒNƒŠƒA‚µ‚Ä‚¨‚­
+			// æŠœã‹ã‚ŒãŸæ¨¡æ§˜ã€‚ã‚¼ãƒ­ã‚¯ãƒªã‚¢ã—ã¦ãŠã
 			ZeroMemory( &state_, sizeof(state_) );
 			ZeroMemory( &cur_vibration_, sizeof(cur_vibration_) );
 		}
 	} else {
-		// “r’†‚ÅØ’f‚³‚ê‚½‚Ì‚ÅA‚Â‚È‚ª‚Á‚Ä‚¢‚é‚©ƒ`ƒFƒbƒNB
+		// é€”ä¸­ã§åˆ‡æ–­ã•ã‚ŒãŸã®ã§ã€ã¤ãªãŒã£ã¦ã„ã‚‹ã‹ãƒã‚§ãƒƒã‚¯ã€‚
 		XINPUT_CAPABILITIES	cap;
 		ret = xinput::GetCapabilities( device_num_, XINPUT_FLAG_GAMEPAD, &cap );
 		is_connected_ = (ret != ERROR_DEVICE_NOT_CONNECTED);
@@ -264,7 +264,7 @@ unsigned long CXInputDevice::Sensing() const
 	return ret;
 }
 
-// XInput ƒfƒoƒCƒX‚Ì‰Šú‰»‚ğs‚¤
+// XInput ãƒ‡ãƒã‚¤ã‚¹ã®åˆæœŸåŒ–ã‚’è¡Œã†
 long CXInputDevice::InitializeXInput()
 {
 	bool	is_xinput_enable = xinput::Initialize();

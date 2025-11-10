@@ -10,23 +10,23 @@
 @date		2008/01/21
 @note
 
-ƒ\[ƒXƒR[ƒhŒ`Ž®‚Å‚ ‚êƒoƒCƒiƒŠŒ`Ž®‚Å‚ ‚êA•ÏX‚Ì—L–³‚ÉŠÖ‚í‚ç‚¸AˆÈ‰º‚ÌðŒ‚ð–ž
-‚½‚·ŒÀ‚è‚É‚¨‚¢‚ÄAÄ”z•z‚¨‚æ‚ÑŽg—p‚ð‹–‰Â‚µ‚Ü‚·:
+ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å½¢å¼ã§ã‚ã‚Œãƒã‚¤ãƒŠãƒªå½¢å¼ã§ã‚ã‚Œã€å¤‰æ›´ã®æœ‰ç„¡ã«é–¢ã‚ã‚‰ãšã€ä»¥ä¸‹ã®æ¡ä»¶ã‚’æº€
+ãŸã™é™ã‚Šã«ãŠã„ã¦ã€å†é…å¸ƒãŠã‚ˆã³ä½¿ç”¨ã‚’è¨±å¯ã—ã¾ã™:
 
-   1. ƒ\[ƒXƒR[ƒhŒ`Ž®‚ÅÄ”z•z‚·‚éê‡Aã‹L’˜ìŒ •\Ž¦A–{ðŒ‘‚¨‚æ‚Ñ‰º‹LÓ”C
-      ŒÀ’è‹K’è‚ð•K‚¸ŠÜ‚ß‚Ä‚­‚¾‚³‚¢B
-   2. ƒoƒCƒiƒŠŒ`Ž®‚ÅÄ”z•z‚·‚éê‡Aã‹L’˜ìŒ •\Ž¦A–{ðŒ‘‚¨‚æ‚Ñ‰º‹LÓ”CŒÀ’è
-      ‹K’è‚ðA”z•z•¨‚Æ‚Æ‚à‚É’ñ‹Ÿ‚³‚ê‚é•¶‘‚¨‚æ‚Ñ‘¼‚ÌŽ‘—¿‚É•K‚¸ŠÜ‚ß‚Ä‚­‚¾‚³‚¢B
+   1. ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å½¢å¼ã§å†é…å¸ƒã™ã‚‹å ´åˆã€ä¸Šè¨˜è‘—ä½œæ¨©è¡¨ç¤ºã€æœ¬æ¡ä»¶æ›¸ãŠã‚ˆã³ä¸‹è¨˜è²¬ä»»
+      é™å®šè¦å®šã‚’å¿…ãšå«ã‚ã¦ãã ã•ã„ã€‚
+   2. ãƒã‚¤ãƒŠãƒªå½¢å¼ã§å†é…å¸ƒã™ã‚‹å ´åˆã€ä¸Šè¨˜è‘—ä½œæ¨©è¡¨ç¤ºã€æœ¬æ¡ä»¶æ›¸ãŠã‚ˆã³ä¸‹è¨˜è²¬ä»»é™å®š
+      è¦å®šã‚’ã€é…å¸ƒç‰©ã¨ã¨ã‚‚ã«æä¾›ã•ã‚Œã‚‹æ–‡æ›¸ãŠã‚ˆã³ä»–ã®è³‡æ–™ã«å¿…ãšå«ã‚ã¦ãã ã•ã„ã€‚
 
-–{ƒ\ƒtƒgƒEƒFƒA‚Í’˜ìŒ ŽÒ‚É‚æ‚Á‚ÄAhŒ»ó‚Ì‚Ü‚Üh’ñ‹Ÿ‚³‚ê‚é‚à‚Ì‚Æ‚µ‚Ü‚·B–{ƒ\ƒt
-ƒgƒEƒFƒA‚É‚Â‚¢‚Ä‚ÍA–¾Ž¦–ÙŽ¦‚ð–â‚í‚¸A¤—p•i‚Æ‚µ‚Ä’Êí‚»‚È‚¦‚é‚×‚«•iŽ¿‚ð‚»‚È‚¦
-‚Ä‚¢‚é‚Æ‚Ì•ÛØ‚àA“Á’è‚Ì–Ú“I‚É“K‡‚·‚é‚Æ‚Ì•ÛØ‚ðŠÜ‚ßA‰½‚Ì•ÛØ‚à‚È‚³‚ê‚Ü‚¹‚ñB
-Ž–—R‚Ì‚¢‚©‚ñ‚ð–â‚í‚¸A‘¹ŠQ”­¶‚ÌŒ´ˆö‚¢‚©‚ñ‚ð–â‚í‚¸AŠŽ‚ÂAÓ”C‚Ìª‹’‚ªŒ_–ñ‚Å‚ 
-‚é‚©ŒµŠiÓ”C‚Å‚ ‚é‚© (‰ßŽ¸‚»‚Ì‘¼) •s–@sˆ×‚Å‚ ‚é‚©‚ð–â‚í‚¸A’˜ìŒ ŽÒ‚Í‰¼‚É‚»‚Ì
-‚æ‚¤‚È‘¹ŠQ‚ª”­¶‚·‚é‰Â”\«‚ð’m‚ç‚³‚ê‚Ä‚¢‚½‚Æ‚µ‚Ä‚àA–{ƒ\ƒtƒgƒEƒFƒA‚ÌŽg—p‚©‚ç”­
-¶‚µ‚½’¼Ú‘¹ŠQAŠÔÚ‘¹ŠQA‹ô”­“I‚È‘¹ŠQA“Á•Ê‘¹ŠQA’¦”±“I‘¹ŠQ‚Ü‚½‚ÍŒ‹‰Ê‘¹ŠQ‚Ì‚¢
-‚¸‚ê‚É‘Î‚µ‚Ä‚à (‘ã‘Ö•i‚Ü‚½‚Í ƒT[ƒrƒX‚Ì’ñ‹Ÿ;Žg—p‹@‰ïAƒf[ƒ^‚Ü‚½‚Í—˜‰v‚Ì‘¹Ž¸‚Ì
-•âž; ‚Ü‚½‚ÍA‹Æ–±‚Ì’†’f‚É‘Î‚·‚é•âž‚ðŠÜ‚ß)Ó”C‚ð‚¢‚Á‚³‚¢•‰‚¢‚Ü‚¹‚ñB
+æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯è‘—ä½œæ¨©è€…ã«ã‚ˆã£ã¦ã€â€ç¾çŠ¶ã®ã¾ã¾â€æä¾›ã•ã‚Œã‚‹ã‚‚ã®ã¨ã—ã¾ã™ã€‚æœ¬ã‚½ãƒ•
+ãƒˆã‚¦ã‚§ã‚¢ã«ã¤ã„ã¦ã¯ã€æ˜Žç¤ºé»™ç¤ºã‚’å•ã‚ãšã€å•†ç”¨å“ã¨ã—ã¦é€šå¸¸ããªãˆã‚‹ã¹ãå“è³ªã‚’ããªãˆ
+ã¦ã„ã‚‹ã¨ã®ä¿è¨¼ã‚‚ã€ç‰¹å®šã®ç›®çš„ã«é©åˆã™ã‚‹ã¨ã®ä¿è¨¼ã‚’å«ã‚ã€ä½•ã®ä¿è¨¼ã‚‚ãªã•ã‚Œã¾ã›ã‚“ã€‚
+äº‹ç”±ã®ã„ã‹ã‚“ã‚’å•ã‚ãšã€æå®³ç™ºç”Ÿã®åŽŸå› ã„ã‹ã‚“ã‚’å•ã‚ãšã€ä¸”ã¤ã€è²¬ä»»ã®æ ¹æ‹ ãŒå¥‘ç´„ã§ã‚
+ã‚‹ã‹åŽ³æ ¼è²¬ä»»ã§ã‚ã‚‹ã‹ (éŽå¤±ãã®ä»–) ä¸æ³•è¡Œç‚ºã§ã‚ã‚‹ã‹ã‚’å•ã‚ãšã€è‘—ä½œæ¨©è€…ã¯ä»®ã«ãã®
+ã‚ˆã†ãªæå®³ãŒç™ºç”Ÿã™ã‚‹å¯èƒ½æ€§ã‚’çŸ¥ã‚‰ã•ã‚Œã¦ã„ãŸã¨ã—ã¦ã‚‚ã€æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ä½¿ç”¨ã‹ã‚‰ç™º
+ç”Ÿã—ãŸç›´æŽ¥æå®³ã€é–“æŽ¥æå®³ã€å¶ç™ºçš„ãªæå®³ã€ç‰¹åˆ¥æå®³ã€æ‡²ç½°çš„æå®³ã¾ãŸã¯çµæžœæå®³ã®ã„
+ãšã‚Œã«å¯¾ã—ã¦ã‚‚ (ä»£æ›¿å“ã¾ãŸã¯ ã‚µãƒ¼ãƒ“ã‚¹ã®æä¾›;ä½¿ç”¨æ©Ÿä¼šã€ãƒ‡ãƒ¼ã‚¿ã¾ãŸã¯åˆ©ç›Šã®æå¤±ã®
+è£œå„Ÿ; ã¾ãŸã¯ã€æ¥­å‹™ã®ä¸­æ–­ã«å¯¾ã™ã‚‹è£œå„Ÿã‚’å«ã‚)è²¬ä»»ã‚’ã„ã£ã•ã„è² ã„ã¾ã›ã‚“ã€‚
 
 *****************************************************************************/
 
@@ -43,7 +43,7 @@ CForceFeedbackDevice::CForceFeedbackDevice( IDirectInputDevice8* input, CInputDe
 {
 }
 
-// ƒtƒH[ƒXƒtƒB[ƒhƒoƒbƒOƒfƒoƒCƒX‚ð‰Šú‰»
+// ãƒ•ã‚©ãƒ¼ã‚¹ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚°ãƒ‡ãƒã‚¤ã‚¹ã‚’åˆæœŸåŒ–
 bool CForceFeedbackDevice::Initialize( HWND hWnd )
 {
 	if( !device_ ) {
@@ -56,13 +56,13 @@ bool CForceFeedbackDevice::Initialize( HWND hWnd )
 		return false;
 	}
 
-	// ƒtƒH[ƒXƒtƒB[ƒhƒoƒbƒN‚ðŽg‚¤ê‡ADISCL_EXCLUSIVE ‚ðŽw’è‚·‚é•K—v‚ª‚ ‚é
+	// ãƒ•ã‚©ãƒ¼ã‚¹ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯ã‚’ä½¿ã†å ´åˆã€DISCL_EXCLUSIVE ã‚’æŒ‡å®šã™ã‚‹å¿…è¦ãŒã‚ã‚‹
 	if( FAILED( hr = device_->SetCooperativeLevel( hWnd, DISCL_EXCLUSIVE |  DISCL_FOREGROUND ) ) ) {
 		Log( L"Failed to Call SetCooperativeLevel.", hr );
 		return false;
 	}
 
-	// ƒtƒH[ƒXƒtƒB[ƒhƒoƒbƒN‚ðŽg‚¤ê‡Aauto-centering ‚ª–â‘è‚É‚È‚é‚ç‚µ‚¢‚Ì‚ÅA–³Œø‚É‚·‚é
+	// ãƒ•ã‚©ãƒ¼ã‚¹ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯ã‚’ä½¿ã†å ´åˆã€auto-centering ãŒå•é¡Œã«ãªã‚‹ã‚‰ã—ã„ã®ã§ã€ç„¡åŠ¹ã«ã™ã‚‹
 	DIPROPDWORD dipdw;
 	dipdw.diph.dwSize		= sizeof(DIPROPDWORD);
 	dipdw.diph.dwHeaderSize	= sizeof(DIPROPHEADER);
@@ -78,15 +78,15 @@ bool CForceFeedbackDevice::Initialize( HWND hWnd )
 		return false;
 	}
 
-	// ƒtƒH[ƒXƒtƒB[ƒhƒoƒbƒN‚·‚é‚à‚Ì‚Í2ŒÂ‚Ü‚Å‚ÌƒTƒ|[ƒg‚É‚·‚é
+	// ãƒ•ã‚©ãƒ¼ã‚¹ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯ã™ã‚‹ã‚‚ã®ã¯2å€‹ã¾ã§ã®ã‚µãƒãƒ¼ãƒˆã«ã™ã‚‹
 	if( enable_objs_.forcefeedback > 2 ) {
 		Log( L"This system support less than 3 axes force freedback. rewrite number of axes." );
 		enable_objs_.forcefeedback = 2;
 	}
 
-	// DirectInput ‚ÌƒtƒH[ƒXƒtƒB[ƒhƒoƒbƒN‚Å‚Í‚©‚È‚è‚¢‚ë‚¢‚ë‚ÈÝ’è‚ªo—ˆ‚é‚ªA‚»‚ê‚ç‚ðŽg‚¤‚Æ•¡ŽG‚É‚È‚Á‚Ä‚µ‚Ü‚¤‚½‚ßA
-	// ƒRƒ“ƒXƒ^ƒ“ƒgƒtƒH[ƒX‚ð—p‚¢‚ÄAƒ\ƒtƒg‘¤‚Å’l‚ð•Ï‚¦‚ÄƒRƒ“ƒgƒ[ƒ‹‚·‚é‚æ‚¤‚É‚·‚éB
-	// XInput ‚Í‚»‚Ì‚æ‚¤‚ÈƒXƒ^ƒCƒ‹‚Ì‚æ‚¤‚È‚Ì‚ÅA‚»‚ê‚Æ‡‚í‚¹‚éB
+	// DirectInput ã®ãƒ•ã‚©ãƒ¼ã‚¹ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯ã§ã¯ã‹ãªã‚Šã„ã‚ã„ã‚ãªè¨­å®šãŒå‡ºæ¥ã‚‹ãŒã€ãã‚Œã‚‰ã‚’ä½¿ã†ã¨è¤‡é›‘ã«ãªã£ã¦ã—ã¾ã†ãŸã‚ã€
+	// ã‚³ãƒ³ã‚¹ã‚¿ãƒ³ãƒˆãƒ•ã‚©ãƒ¼ã‚¹ã‚’ç”¨ã„ã¦ã€ã‚½ãƒ•ãƒˆå´ã§å€¤ã‚’å¤‰ãˆã¦ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã™ã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚
+	// XInput ã¯ãã®ã‚ˆã†ãªã‚¹ã‚¿ã‚¤ãƒ«ã®ã‚ˆã†ãªã®ã§ã€ãã‚Œã¨åˆã‚ã›ã‚‹ã€‚
 	rgdw_axes_[0] = DIJOFS_X;
 	rgdw_axes_[1] = DIJOFS_Y;
 	rgl_direction_[0] = 0;
@@ -95,7 +95,7 @@ bool CForceFeedbackDevice::Initialize( HWND hWnd )
 
 	ZeroMemory( &effect_param_, sizeof(effect_param_) );
 	effect_param_.dwSize					= sizeof(DIEFFECT);
-	effect_param_.dwFlags					= DIEFF_CARTESIAN | DIEFF_OBJECTOFFSETS;	// ’¼ŒðÀ•W‚Å’lŽw’è 
+	effect_param_.dwFlags					= DIEFF_CARTESIAN | DIEFF_OBJECTOFFSETS;	// ç›´äº¤åº§æ¨™ã§å€¤æŒ‡å®š 
 	effect_param_.dwDuration				= INFINITE;
 	effect_param_.dwSamplePeriod			= 0;
 	effect_param_.dwGain					= DI_FFNOMINALMAX;
@@ -128,15 +128,15 @@ void CForceFeedbackDevice::SetRightVibration( double val )
 	if( val > 1.0 ) val = 1.0;
 	right_magnitude_ = val;
 }
-//! ƒtƒH[ƒXƒtƒB[ƒhƒoƒbƒN‚ðŽÀsBk‚¦‚³‚¹‚é
+//! ãƒ•ã‚©ãƒ¼ã‚¹ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯ã‚’å®Ÿè¡Œã€‚éœ‡ãˆã•ã›ã‚‹
 bool CForceFeedbackDevice::UpdateFF()
 {
-	// ƒGƒtƒFƒNƒg‚ª‚È‚¢‚æc
+	// ã‚¨ãƒ•ã‚§ã‚¯ãƒˆãŒãªã„ã‚ˆâ€¦
 	if( !effect_ ) {
 		return false;
 	}
 
-	// ƒtƒH[ƒXƒtƒB[ƒhƒoƒbƒNŽ²‚ª‚È‚¢‚æc
+	// ãƒ•ã‚©ãƒ¼ã‚¹ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯è»¸ãŒãªã„ã‚ˆâ€¦
 	if( enable_objs_.forcefeedback == 0 )
 		return true;
 
@@ -144,18 +144,18 @@ bool CForceFeedbackDevice::UpdateFF()
 	int	right_force = (int)(DI_FFNOMINALMAX * right_magnitude_);
 
 	if( enable_objs_.forcefeedback == 1 ) {
-		// 1ŒÂ‚¾‚¯‚ÌŽž‚ÍA¶‚¾‚¯‚Æl‚¦‚é
+		// 1å€‹ã ã‘ã®æ™‚ã¯ã€å·¦ã ã‘ã¨è€ƒãˆã‚‹
 		cf_.lMagnitude = left_force;
 		rgl_direction_[0] = 0;
 		rgl_direction_[1] = 0;
 	} else {
-		// 2Ž²‚ÌŽž‚ÍAŽ²’l‚Æƒ}ƒOƒjƒ`ƒ…[ƒh‚Å§Œä
+		// 2è»¸ã®æ™‚ã¯ã€è»¸å€¤ã¨ãƒžã‚°ãƒ‹ãƒãƒ¥ãƒ¼ãƒ‰ã§åˆ¶å¾¡
 		rgl_direction_[0] = left_force;
 		rgl_direction_[1] = right_force;
 		cf_.lMagnitude = (DWORD)sqrt( (double)left_force * (double)left_force + (double)right_force * (double)right_force );
 	}
 
-	// ƒtƒH[ƒX‚ð“K—pI k‚¦‚ëI
+	// ãƒ•ã‚©ãƒ¼ã‚¹ã‚’é©ç”¨ï¼ éœ‡ãˆã‚ï¼
 	HRESULT	hr;
 	if( FAILED( hr = effect_->SetParameters( &effect_param_, DIEP_DIRECTION | DIEP_TYPESPECIFICPARAMS | DIEP_START ) ) ) {
 		Log( L"Failed to Call SetParameters.", hr );

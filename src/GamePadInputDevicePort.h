@@ -1,6 +1,6 @@
 /****************************************************************************/
 /*! @file
-@brief �W���C�X�e�B�b�N�|�[�g
+@brief ジョイスティックポート
 
 -----------------------------------------------------------------------------
 	Copyright (C) 2008 Takenori Imoto. All rights reserved.
@@ -10,23 +10,23 @@
 @date		2008/01/21
 @note
 
-�\�[�X�R�[�h�`���ł���o�C�i���`���ł���A�ύX�̗L���Ɋւ�炸�A�ȉ��̏�����
-��������ɂ����āA�Ĕz�z����юg�p�������܂�:
+ソースコード形式であれバイナリ形式であれ、変更の有無に関わらず、以下の条件を満
+たす限りにおいて、再配布および使用を許可します:
 
-   1. �\�[�X�R�[�h�`���ōĔz�z����ꍇ�A��L���쌠�\���A�{����������щ��L�ӔC
-      ����K���K���܂߂Ă��������B
-   2. �o�C�i���`���ōĔz�z����ꍇ�A��L���쌠�\���A�{����������щ��L�ӔC����
-      �K����A�z�z���ƂƂ��ɒ񋟂���镶������ё��̎����ɕK���܂߂Ă��������B
+   1. ソースコード形式で再配布する場合、上記著作権表示、本条件書および下記責任
+      限定規定を必ず含めてください。
+   2. バイナリ形式で再配布する場合、上記著作権表示、本条件書および下記責任限定
+      規定を、配布物とともに提供される文書および他の資料に必ず含めてください。
 
-�{�\�t�g�E�F�A�͒��쌠�҂ɂ���āA�h����̂܂܁h�񋟂������̂Ƃ��܂��B�{�\�t
-�g�E�F�A�ɂ��ẮA�����َ����킸�A���p�i�Ƃ��Ēʏ킻�Ȃ���ׂ��i�������Ȃ�
-�Ă���Ƃ̕ۏ؂��A����̖ړI�ɓK������Ƃ̕ۏ؂��܂߁A���̕ۏ؂��Ȃ���܂���B
-���R�̂�������킸�A���Q�����̌�����������킸�A���A�ӔC�̍������_��ł�
-�邩���i�ӔC�ł��邩 (�ߎ����̑�) �s�@�s�ׂł��邩���킸�A���쌠�҂͉��ɂ���
-�悤�ȑ��Q����������\����m�炳��Ă����Ƃ��Ă��A�{�\�t�g�E�F�A�̎g�p���甭
-���������ڑ��Q�A�Ԑڑ��Q�A�����I�ȑ��Q�A���ʑ��Q�A�����I���Q�܂��͌��ʑ��Q�̂�
-����ɑ΂��Ă� (��֕i�܂��� �T�[�r�X�̒�;�g�p�@��A�f�[�^�܂��͗��v�̑�����
-�⏞; �܂��́A�Ɩ��̒��f�ɑ΂���⏞���܂�)�ӔC���������������܂���B
+本ソフトウェアは著作権者によって、”現状のまま”提供されるものとします。本ソフ
+トウェアについては、明示黙示を問わず、商用品として通常そなえるべき品質をそなえ
+ているとの保証も、特定の目的に適合するとの保証を含め、何の保証もなされません。
+事由のいかんを問わず、損害発生の原因いかんを問わず、且つ、責任の根拠が契約であ
+るか厳格責任であるか (過失その他) 不法行為であるかを問わず、著作権者は仮にその
+ような損害が発生する可能性を知らされていたとしても、本ソフトウェアの使用から発
+生した直接損害、間接損害、偶発的な損害、特別損害、懲罰的損害または結果損害のい
+ずれに対しても (代替品または サービスの提供;使用機会、データまたは利益の損失の
+補償; または、業務の中断に対する補償を含め)責任をいっさい負いません。
 
 *****************************************************************************/
 
@@ -44,16 +44,16 @@
 
 namespace gamepad {
 
-//! ���z�I�ȃN���X
-//! �|�[�g�ɃR���g���[�����Ȃ����Ă���悤�Ɉ���
+//! 仮想的なクラス
+//! ポートにコントローラがつながっているように扱う
 class CInputDevicePort
 {
-//	std::vector<IInputDevice*>	controllers_;		//!< ���g�p�R���g���[���̃��X�g
-	std::list<DWORD>			xinput_vid_pids_;	//!< XInput �f�o�C�X�̃x���_�[ID�ƃv���_�N�gID�̃��X�g
+//	std::vector<IInputDevice*>	controllers_;		//!< 実使用コントローラのリスト
+	std::list<DWORD>			xinput_vid_pids_;	//!< XInput デバイスのベンダーIDとプロダクトIDのリスト
 
-	//! �R���g���[���p�l�� - �Q�[���R���g���[���ŗD��f�o�C�X�ɐݒ肳��Ă�����̂�GUID
+	//! コントロールパネル - ゲームコントローラで優先デバイスに設定されているもののGUID
 	GUID				preferred_device_guid_;
-	bool				is_valid_preferred_device_guid_;	//!< �D��f�o�C�XGUID���L�����ǂ���
+	bool				is_valid_preferred_device_guid_;	//!< 優先デバイスGUIDが有効かどうか
 
 	std::list<IInputDevice*>	controllers_;
 
@@ -62,43 +62,43 @@ class CInputDevicePort
 	static CDLLLoader			dinput_dll_;	//!< Direct Input DLL
 	CComPtr<IDirectInput8>		direct_input_;	//!< Direct Input
 
-	//! ���̃��X�g�Ɋi�[����
+	//! 仮のリストに格納する
 	void PutTempControllers( IInputDevice* device ) {
 		controllers_.push_back( device );
 	}
-	//! ���̃��X�g�̐擪�Ɋi�[����
+	//! 仮のリストの先頭に格納する
 	void PutTempControllersFront( IInputDevice* device ) {
 		controllers_.push_front( device );
 	}
 
-	//! XInput�̏�����
+	//! XInputの初期化
 	void InitializeXInput();
-	//! DirectInput �̏�����
+	//! DirectInput の初期化
 	void InitializeDirectInput();
 
-	//! DirectInput �f�o�C�X����������
+	//! DirectInput デバイスを検索する
 	void FindDirectInputDevice();
-	//! DirectInput �f�o�C�X�񋓎��̃R�[���o�b�N�֐�
+	//! DirectInput デバイス列挙時のコールバック関数
 	static BOOL CALLBACK EnumDevicesCallback( const DIDEVICEINSTANCE* pInst, VOID* pContext );
-	//! DirectInput �f�o�C�X�񋓎��̃R�[���o�b�N�֐�
+	//! DirectInput デバイス列挙時のコールバック関数
 	bool EnumDevicesCallback( const DIDEVICEINSTANCE* pInst );
 
-	//! XInput �f�o�C�X����������
+	//! XInput デバイスを検索する
 	bool FindXInputDevice();
-	//! XInput �f�o�C�X���ǂ����`�F�b�N����
+	//! XInput デバイスかどうかチェックする
 	bool IsXInputDevice( const GUID& GuidProduct ) const;
 
-	//! �D��f�o�C�X�� GUID ���擾����
+	//! 優先デバイスの GUID を取得する
 	void GetPreferredDevice();
 
-	//! �S�f�o�C�X������������
+	//! 全デバイスを初期化する
 	void InitializeAllDevice( HWND hWnd );
 
-	//! ��̃|�[�g����������
-	// @return < 0 : �󂫂Ȃ�, other : �󂫃|�[�g
+	//! 空のポートを検索する
+	// @return < 0 : 空きなし, other : 空きポート
 //	int GetEmptyPort();
 
-	//! �w��|�[�g�Ƀf�o�C�X���Z�b�g����
+	//! 指定ポートにデバイスをセットする
 //	bool InsertDeviceToPort( int num, IInputDevice* device );
 
 	void ClearAllDevice();
@@ -107,15 +107,15 @@ public:
 	CInputDevicePort();
 	~CInputDevicePort();
 
-	// �R���g���[��������������
+	// コントローラを初期化する
 	void InitializeControllers( HWND hWnd );
 
-	// �L���ȃR���g���[�������擾����
+	// 有効なコントローラ数を取得する
 	size_t GetNumberOfEnableControllers() const { return controllers_.size(); }
 
 	IInputDevice* GetController( size_t idx );
 
-	//! Direct Input Device �����X�g���A�Ď擾����K�v�����鎞�Ɏg�p����
+	//! Direct Input Device をロストし、再取得する必要がある時に使用する
 	bool CreateDirectInputDevice( GUID& instGuid, IDirectInputDevice8** device );
 };
 

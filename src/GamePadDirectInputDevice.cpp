@@ -10,23 +10,23 @@
 @date		2008/01/21
 @note
 
-�\�[�X�R�[�h�`���ł���o�C�i���`���ł���A�ύX�̗L���Ɋւ�炸�A�ȉ��̏�����
-��������ɂ����āA�Ĕz�z����юg�p�������܂�:
+ソースコード形式であれバイナリ形式であれ、変更の有無に関わらず、以下の条件を満
+たす限りにおいて、再配布および使用を許可します:
 
-   1. �\�[�X�R�[�h�`���ōĔz�z����ꍇ�A��L���쌠�\���A�{����������щ��L�ӔC
-      ����K���K���܂߂Ă��������B
-   2. �o�C�i���`���ōĔz�z����ꍇ�A��L���쌠�\���A�{����������щ��L�ӔC����
-      �K����A�z�z���ƂƂ��ɒ񋟂���镶������ё��̎����ɕK���܂߂Ă��������B
+   1. ソースコード形式で再配布する場合、上記著作権表示、本条件書および下記責任
+      限定規定を必ず含めてください。
+   2. バイナリ形式で再配布する場合、上記著作権表示、本条件書および下記責任限定
+      規定を、配布物とともに提供される文書および他の資料に必ず含めてください。
 
-�{�\�t�g�E�F�A�͒��쌠�҂ɂ���āA�h����̂܂܁h�񋟂������̂Ƃ��܂��B�{�\�t
-�g�E�F�A�ɂ��ẮA�����َ����킸�A���p�i�Ƃ��Ēʏ킻�Ȃ���ׂ��i�������Ȃ�
-�Ă���Ƃ̕ۏ؂��A����̖ړI�ɓK������Ƃ̕ۏ؂��܂߁A���̕ۏ؂��Ȃ���܂���B
-���R�̂�������킸�A���Q�����̌�����������킸�A���A�ӔC�̍������_��ł�
-�邩���i�ӔC�ł��邩 (�ߎ����̑�) �s�@�s�ׂł��邩���킸�A���쌠�҂͉��ɂ���
-�悤�ȑ��Q����������\����m�炳��Ă����Ƃ��Ă��A�{�\�t�g�E�F�A�̎g�p���甭
-���������ڑ��Q�A�Ԑڑ��Q�A�����I�ȑ��Q�A���ʑ��Q�A�����I���Q�܂��͌��ʑ��Q�̂�
-����ɑ΂��Ă� (��֕i�܂��� �T�[�r�X�̒�;�g�p�@��A�f�[�^�܂��͗��v�̑�����
-�⏞; �܂��́A�Ɩ��̒��f�ɑ΂���⏞���܂�)�ӔC���������������܂���B
+本ソフトウェアは著作権者によって、”現状のまま”提供されるものとします。本ソフ
+トウェアについては、明示黙示を問わず、商用品として通常そなえるべき品質をそなえ
+ているとの保証も、特定の目的に適合するとの保証を含め、何の保証もなされません。
+事由のいかんを問わず、損害発生の原因いかんを問わず、且つ、責任の根拠が契約であ
+るか厳格責任であるか (過失その他) 不法行為であるかを問わず、著作権者は仮にその
+ような損害が発生する可能性を知らされていたとしても、本ソフトウェアの使用から発
+生した直接損害、間接損害、偶発的な損害、特別損害、懲罰的損害または結果損害のい
+ずれに対しても (代替品または サービスの提供;使用機会、データまたは利益の損失の
+補償; または、業務の中断に対する補償を含め)責任をいっさい負いません。
 
 *****************************************************************************/
 
@@ -53,7 +53,7 @@ CDirectInputDevice::CDirectInputDevice( IDirectInputDevice8* input, CInputDevice
 	ClearKeyMap();
 }
 
-// �t�H�[�X�t�B�[�h�o�b�O�����
+// フォースフィードバッグ軸を列挙
 BOOL CALLBACK CDirectInputDevice::EnumObjectsCallback( const DIDEVICEOBJECTINSTANCE* pdidoi, VOID* pContext )
 {
 	return reinterpret_cast<CDirectInputDevice*>(pContext)->EnumObjectsCallback( pdidoi ) ? DIENUM_CONTINUE : DIENUM_STOP;
@@ -63,13 +63,13 @@ bool CDirectInputDevice::EnumObjectsCallback( const DIDEVICEOBJECTINSTANCE* pdid
 {
 	HRESULT hr;
 
-	// �I�u�W�F�N�g�������o��
+	// オブジェクト名書き出し
 	std::wstring	objName;
 	if( EncodeToUTF16( objName, std::string(pdidoi->tszName) ) ) {
 		Log( (std::wstring(L"[ ") + objName + std::wstring(L" ]")).c_str() );
 	}
 
-	// �^�C�v�`�F�b�N
+	// タイプチェック
 	std::wstringstream typeStr;
 	typeStr << L"Type : ";
 	if( pdidoi->guidType == GUID_Button ) {
@@ -108,8 +108,8 @@ bool CDirectInputDevice::EnumObjectsCallback( const DIDEVICEOBJECTINSTANCE* pdid
 	}
 	Log( typeStr.str().c_str() );
 
-	// �^�C�v�����̎��A�ő�l�ƍŏ��l��ݒ肷��B���͈̔͂́AXInput �͈̔͂ɂ��킹�Ă���B
-	// Logitech RamblePad 2 �́A���͈̔͂ł����Ȃ�
+	// タイプが軸の時、最大値と最小値を設定する。この範囲は、XInput の範囲にあわせている。
+	// Logitech RamblePad 2 は、この範囲でも問題ない
 	if( pdidoi->dwType & DIDFT_AXIS ) {
 		DIPROPRANGE diprg;
 		diprg.diph.dwSize		= sizeof(DIPROPRANGE);
@@ -143,9 +143,9 @@ bool CDirectInputDevice::EnumObjectsCallback( const DIDEVICEOBJECTINSTANCE* pdid
 		}
 		stream << L", Physical Range Min : " << diprg.lMin << L" Max : " << diprg.lMax;
 
-		// �ǂ����f�b�h�]�[����O�a�_���擾���Ă��Ӗ��͂Ȃ��悤��
-		// Logitech RamblePad 2 �́A�����̒l�������Ȃ����A���S�t�߂Ƀf�b�h�]�[��������B
-		// �f�b�h�]�[���́AXInput �̌Œ�l���g���A�����ł͒l�����O�ɏ����o���݂̂ɂ���
+		// どうもデッドゾーンや飽和点を取得しても意味はないようだ
+		// Logitech RamblePad 2 は、これらの値を持たないが、中心付近にデッドゾーンがある。
+		// デッドゾーンは、XInput の固定値を使い、ここでは値をログに書き出すのみにする
 		DIPROPDWORD	propDword;
 		ZeroMemory( &propDword, sizeof(propDword) );
 		propDword.diph.dwSize = sizeof(DIPROPDWORD);
@@ -173,42 +173,42 @@ bool CDirectInputDevice::EnumObjectsCallback( const DIDEVICEOBJECTINSTANCE* pdid
 		Log( stream.str().c_str() );
 	}
 
-	// �@�\�`�F�b�N
+	// 機能チェック
 	std::wstringstream function;
 	function << L"Functions : ";
 	std::wstringstream effectStream;
 	effectStream << L"Values : ";
 	if( pdidoi->dwFlags & DIDOI_ASPECTMASK ) {
-		function << L" ���̂ЂƂ̏��̂ݕ�";
+		function << L" 次のひとつの情報のみ報告";
 	}
 	if( pdidoi->dwFlags & DIDOI_ASPECTACCEL ) {
-		function << L" �����x���";
+		function << L" 加速度情報";
 	}
 	if( pdidoi->dwFlags & DIDOI_ASPECTFORCE ) {
-		function << L" �t�H�[�X���";
+		function << L" フォース情報";
 	}
 	if( pdidoi->dwFlags & DIDOI_ASPECTPOSITION ) {
-		function << L" �ʒu���";
+		function << L" 位置情報";
 	}
 	if( pdidoi->dwFlags & DIDOI_ASPECTVELOCITY ) {
-		function << L" ���x���";
+		function << L" 速度情報";
 	}
 	if( pdidoi->dwFlags & DIDOI_FFACTUATOR ) {
-		function << L" �t�H�[�X�t�B�[�h�o�b�N";
+		function << L" フォースフィードバック";
 		enable_objs_.forcefeedback++;
 		effectStream << L" Max Force = " << pdidoi->dwFFMaxForce << " [N]";
 		effectStream << L" Force Resolution = " << pdidoi->dwFFForceResolution;
 	}
 	if( pdidoi->dwFlags & DIDOI_FFEFFECTTRIGGER ) {
-		function << L" �t�H�[�X�t�B�[�h�o�b�N�g���K";
+		function << L" フォースフィードバックトリガ";
 //		enable_objs_.forcefeedback++;
 	}
 	if( pdidoi->dwFlags & DIDOI_POLLED ) {
-		function << L" Poll���\�b�h�Ăяo���K�{";
+		function << L" Pollメソッド呼び出し必須";
 		request_poll_method_ = true;
 	}
 	if( pdidoi->dwFlags & DIDOI_GUIDISUSAGE ) {
-		function << L" �K�v�Ȏg�p�y�[�W�Ǝg�p�󋵂̓p�b�N���ꂽDWORD�`��";
+		function << L" 必要な使用ページと使用状況はパックされたDWORD形式";
 	}
 	effectStream << L" Exponent = " << pdidoi->wExponent;
 
@@ -235,8 +235,8 @@ bool CDirectInputDevice::EnumObjectsCallback( const DIDEVICEOBJECTINSTANCE* pdid
 void CDirectInputDevice::DoAutoKeyMapping()
 {
 	if( !CopyKeyMap( key_map_, vendor_id_, product_id_ ) ) {
-		// ���t����Ȃ�����
-		// ������ۂ��̂Ŋ��蓖�Ă����݂�
+		// 見付からなかった
+		// それっぽいので割り当てを試みる
 
 		int	pov_used = 0;
 		if( enable_objs_.axis & DirectInputObjects::AXIS_X ) {
@@ -245,7 +245,7 @@ void CDirectInputDevice::DoAutoKeyMapping()
 		}
 		if( enable_objs_.axis & DirectInputObjects::AXIS_Y ) {
 			key_map_.axis[DIAMAP_NUM_LY].obj_num = DIObj_AxisY;
-			key_map_.axis[DIAMAP_NUM_LY].direction = -1;	// Y���͔��]���Ă��邱�Ƃ������H
+			key_map_.axis[DIAMAP_NUM_LY].direction = -1;	// Y軸は反転していることが多い？
 		}
 		if( enable_objs_.axis & DirectInputObjects::AXIS_Z ) {
 			key_map_.axis[DIAMAP_NUM_RX].obj_num = DIObj_AxisZ;
@@ -253,12 +253,12 @@ void CDirectInputDevice::DoAutoKeyMapping()
 		}
 		if( enable_objs_.axis & DirectInputObjects::AXIS_ROT_Z ) {
 			key_map_.axis[DIAMAP_NUM_RY].obj_num = DIObj_AxisRotZ;
-			key_map_.axis[DIAMAP_NUM_RY].direction = -1;	// Y���͔��]���Ă��邱�Ƃ������H
+			key_map_.axis[DIAMAP_NUM_RY].direction = -1;	// Y軸は反転していることが多い？
 		}
-		// ��ʓI�Ȏ��̐ݒ�ɍ��v���Ȃ������ꍇ�c�c �d���Ȃ��̂Ŏ��ɂ��肪���Ȃ̂Őݒ肷��
+		// 一般的な軸の設定に合致しなかった場合…… 仕方ないので次にありがちなので設定する
 		if( key_map_.axis[DIAMAP_NUM_LX].obj_num == DIObj_Disable ) {
 			if( enable_objs_.pov > pov_used ) {
-				key_map_.axis[DIAMAP_NUM_LX].obj_num = DIObj_POV_0;	// POV �����蓖�ĂƂ�
+				key_map_.axis[DIAMAP_NUM_LX].obj_num = DIObj_POV_0;	// POV を割り当てとく
 				key_map_.axis[DIAMAP_NUM_LX].direction = 1;
 				key_map_.axis[DIAMAP_NUM_LY].obj_num = DIObj_POV_0;
 				key_map_.axis[DIAMAP_NUM_LY].direction = 1;
@@ -267,24 +267,24 @@ void CDirectInputDevice::DoAutoKeyMapping()
 		}
 
 		if( key_map_.axis[DIAMAP_NUM_RX].obj_num == DIObj_Disable ) {
-			if( enable_objs_.slider > 0 ) {	// �X���C�_�[����
+			if( enable_objs_.slider > 0 ) {	// スライダーかも
 				key_map_.axis[DIAMAP_NUM_RX].obj_num = DIObj_Slider_0;
 				key_map_.axis[DIAMAP_NUM_RX].direction = -1;
-			} else if( enable_objs_.axis & DirectInputObjects::AXIS_ROT_X ) {	// X����]�H
+			} else if( enable_objs_.axis & DirectInputObjects::AXIS_ROT_X ) {	// X軸回転？
 				key_map_.axis[DIAMAP_NUM_RX].obj_num = DIObj_AxisRotX;
 				key_map_.axis[DIAMAP_NUM_RX].direction = -1;
-			} else if( enable_objs_.axis & DirectInputObjects::AXIS_ROT_Y ) {	// Y����]�H
+			} else if( enable_objs_.axis & DirectInputObjects::AXIS_ROT_Y ) {	// Y軸回転？
 				key_map_.axis[DIAMAP_NUM_RX].obj_num = DIObj_AxisRotY;
 				key_map_.axis[DIAMAP_NUM_RX].direction = -1;
 			} else if( enable_objs_.pov > pov_used ) {
-				key_map_.axis[DIAMAP_NUM_RX].obj_num = DIObj_POV_0+pov_used;	// POV �����蓖�ĂƂ�
+				key_map_.axis[DIAMAP_NUM_RX].obj_num = DIObj_POV_0+pov_used;	// POV を割り当てとく
 				key_map_.axis[DIAMAP_NUM_RX].direction = 1;
 				pov_used++;
 			}
 		}
 		if( key_map_.axis[DIAMAP_NUM_RY].obj_num == DIObj_Disable ) {
 			if( key_map_.axis[DIAMAP_NUM_RX].obj_num >= DIObj_POV_0 && key_map_.axis[DIAMAP_NUM_RX].obj_num <= DIObj_POV_3 ) {
-				// X����POV�Ȃ炱������POV
+				// X軸がPOVならこっちもPOV
 				key_map_.axis[DIAMAP_NUM_RY].obj_num = key_map_.axis[DIAMAP_NUM_RX].obj_num;
 				key_map_.axis[DIAMAP_NUM_RY].direction = 1;
 			}
@@ -299,38 +299,38 @@ void CDirectInputDevice::DoAutoKeyMapping()
 			key_map_.button[DIBMAP_NUM_DPAD_RIGHT].obj_num = DIObj_POV_0;
 			key_map_.button[DIBMAP_NUM_DPAD_RIGHT].direction = 1;
 		}
-		// �ŏ���4�{�^���֗D��I�Ɋ��蓖�Ă�
+		// 最初の4つボタンへ優先的に割り当てる
 		int	b = 0;
 		for( ; b < enable_objs_.button && b < 4; b++ ) {
 			key_map_.button[b+DIBMAP_NUM_A].obj_num = DIObj_Button1 + b;
 			key_map_.button[b+DIBMAP_NUM_A].direction = 1;
 		}
-		// ����LR��SHOULDER�֊��蓖��
+		// 次はLRのSHOULDERへ割り当て
 		for( int t = 0; b < enable_objs_.button && b < 6; b++, t++ ) {
 			key_map_.button[t+DIBMAP_NUM_LEFT_SHOULDER].obj_num = DIObj_Button1 + b;
 			key_map_.button[t+DIBMAP_NUM_LEFT_SHOULDER].direction = 1;
 		}
-		// ����LR��TRIGGER�֊��蓖��
+		// 次はLRのTRIGGERへ割り当て
 		for( int t = 0; b < enable_objs_.button && b < 8; b++, t++ ) {
 			key_map_.trigger[t].obj_num = DIObj_Button1 + b;
 			key_map_.trigger[t].direction = 1;
 		}
-		// ����BACK�{�^��
+		// 次はBACKボタン
 		for( ; b < enable_objs_.button && b < 9; b++ ) {
 			key_map_.button[DIBMAP_NUM_BACK].obj_num = DIObj_Button1 + b;
 			key_map_.button[DIBMAP_NUM_BACK].direction = 1;
 		}
-		// ����START�{�^��
+		// 次はSTARTボタン
 		for( ; b < enable_objs_.button && b < 10; b++ ) {
 			key_map_.button[DIBMAP_NUM_START].obj_num = DIObj_Button1 + b;
 			key_map_.button[DIBMAP_NUM_START].direction = 1;
 		}
-		// ���̓X�e�B�b�N��THUMB�{�^��
+		// 次はスティックのTHUMBボタン
 		for( int t = 0; b < enable_objs_.button && b < 12; b++, t++ ) {
 			key_map_.button[t+DIBMAP_NUM_LEFT_THUMB].obj_num = DIObj_Button1 + b;
 			key_map_.button[t+DIBMAP_NUM_LEFT_THUMB].direction = 1;
 		}
-		// �t�H�[�X�t�B�[�h�o�b�N����2�ȏ゠�鎞�́A���������ŏ�
+		// フォースフィードバック軸が2個以上ある時は、多分左が最初
 		if( enable_objs_.forcefeedback > 1 ) {
 			key_map_.leftforcefirst = true;
 		}
@@ -366,7 +366,7 @@ void CDirectInputDevice::RetrieveConnectedPortName()
 	distr.diph.dwObj		= 0;
 	distr.diph.dwHow		= DIPH_DEVICE;
 
-// DIPROP_GETPORTDISPLAYNAME �͐��������ꍇ�ł� S_FALSE ���Ԃ����
+// DIPROP_GETPORTDISPLAYNAME は成功した場合でも S_FALSE が返される
 	HRESULT hr;
 	if( FAILED( hr = device_->GetProperty( DIPROP_GETPORTDISPLAYNAME, &distr.diph ) ) ) {
 		Log( L"Failed to Call GetProperty - DIPROP_GETPORTDISPLAYNAME.", hr );
@@ -436,7 +436,7 @@ void CDirectInputDevice::Update()
 		RecreateDevice();
 	}
 
-	// �܂��擾�ł��Ȃ�
+	// まだ取得できない
 	if( device_creating_ ) return;
 
 	HRESULT		hr;
@@ -445,11 +445,11 @@ void CDirectInputDevice::Update()
 		hr = device_->Poll();
 		if( FAILED(hr) ) {
 			if( hr == DIERR_INPUTLOST ) {
-//				Log( L"���̓f�o�C�X�ւ̃A�N�Z�X������ꂽ�B�Ď擾���Ȃ���΂Ȃ�Ȃ��B ");
+//				Log( L"入力デバイスへのアクセスが失われた。再取得しなければならない。 ");
 			} else if( hr == DIERR_NOTACQUIRED ) {
-//				Log( L"����́A�f�o�C�X���擾����Ȃ�������s�ł��Ȃ��B  ");
+//				Log( L"操作は、デバイスが取得されない限り実行できない。  ");
 			} else if( hr == DIERR_NOTINITIALIZED ) {
-				Log( L"���̃I�u�W�F�N�g�͏���������Ă��Ȃ��B  ");
+				Log( L"このオブジェクトは初期化されていない。  ");
 				Log( L"Failed to Call Poll.", hr );
 			}
 		}
@@ -461,15 +461,15 @@ void CDirectInputDevice::Update()
 			Acquire();
 			ClearState();
 		} else if( hr == DIERR_NOTACQUIRED ) {
-			// �f�o�C�X���擾����Ă��Ȃ��̂Ŏ擾����
+			// デバイスが取得されていないので取得する
 			Acquire();
 			ClearState();
 		} else if( hr == DIERR_NOTINITIALIZED || hr == DIERR_INVALIDPARAM ) {
-			//! �v���O�����G���[
+			//! プログラムエラー
 			assert(0);
-			// �����ŗ�O�𓊂���
+			// ここで例外を投げる
 		} else if( hr == E_PENDING ) {
-			// �f�[�^���܂����p�ł��Ȃ��悤�Ȃ̂ŃN���A���Ă����B
+			// データがまだ利用できないようなのでクリアしておく。
 			ClearState();
 		} else {
 			// Unknown Error
@@ -477,7 +477,7 @@ void CDirectInputDevice::Update()
 			ClearState();
 		}
 	} else {
-		// GetDeviceState �������������AForce Feedback�̐ݒ�𔽉f����
+		// GetDeviceState が成功した時、Force Feedbackの設定を反映する
 		UpdateFF();
 	}
 }
@@ -487,14 +487,14 @@ bool CDirectInputDevice::Acquire()
 	HRESULT hr;
 	if( DI_OK != ( hr = device_->Acquire() ) ) {
 		if( hr == DIERR_INVALIDPARAM ) {
-			//! �v���O�����G���[
+			//! プログラムエラー
 			// assert(0);
-			// �����ŗ�O�𓊂���
+			// ここで例外を投げる
 			return false;
 		} else if( hr == DIERR_NOTINITIALIZED ) {
 			return false;
 		} else if( hr == DIERR_OTHERAPPHASPRIO ) {
-			// �A�v�����o�b�N�O���E���h�ɂ���悤��
+			// アプリがバックグラウンドにあるようだ
 			return false;
 		} else {
 			// Unknown Error
@@ -553,28 +553,28 @@ unsigned long CDirectInputDevice::GetKeyState() const
 	num = key_map_.button[DIBMAP_NUM_Y].obj_num - DIObj_Button1;
 	ret |= btn[num] & 0x80 ? IDBTN_Y : 0;
 
-	// ��{�^��
+	// 上ボタン
 	num = key_map_.button[DIBMAP_NUM_DPAD_UP].obj_num;
 	int dir = key_map_.button[DIBMAP_NUM_DPAD_UP].direction;
 	if( IsPressPlusKey( DIBMAP_NUM_DPAD_UP, num, dir ) ) {
 		ret |= IDBTN_DPAD_UP;
 	}
 
-	// ���{�^��
+	// 下ボタン
 	num = key_map_.button[DIBMAP_NUM_DPAD_DOWN].obj_num;
 	dir = key_map_.button[DIBMAP_NUM_DPAD_DOWN].direction;
 	if( IsPressPlusKey( DIBMAP_NUM_DPAD_DOWN, num, dir ) ) {
 		ret |= IDBTN_DPAD_DOWN;
 	}
 
-	// ���{�^��
+	// 左ボタン
 	num = key_map_.button[DIBMAP_NUM_DPAD_LEFT].obj_num;
 	dir = key_map_.button[DIBMAP_NUM_DPAD_LEFT].direction;
 	if( IsPressPlusKey( DIBMAP_NUM_DPAD_LEFT, num, dir ) ) {
 		ret |= IDBTN_DPAD_LEFT;
 	}
 
-	// �E�{�^��
+	// 右ボタン
 	num = key_map_.button[DIBMAP_NUM_DPAD_RIGHT].obj_num;
 	dir = key_map_.button[DIBMAP_NUM_DPAD_RIGHT].direction;
 	if( IsPressPlusKey( DIBMAP_NUM_DPAD_RIGHT, num, dir ) ) {
@@ -598,7 +598,7 @@ bool CDirectInputDevice::IsPressPlusKey( long key, int num, int dir ) const
 			return IsPressRightForPovVal(state_.state.rgdwPOV[idx]);
 		}
 	} else if( num >= DIObj_AxisX && num <= DIObj_Slider_1 ) {
-		// �����^�ŕ���ł���̂Ŕz��Ƃ݂Ȃ��ď����B�X���C�_�[���ꏏ
+		// 同じ型で並んでいるので配列とみなして処理。スライダーも一緒
 		const LONG	*axis = &(state_.state.lX);
 		if( key == DIBMAP_NUM_DPAD_UP || key == DIBMAP_NUM_DPAD_RIGHT ) {
 			return ( (axis[num] * dir) > 0 );
@@ -634,7 +634,7 @@ double CDirectInputDevice::GetAxisValue( long val, int dir )
 double CDirectInputDevice::GetTriggerValue( int num ) const
 {
 	if( num >= DIObj_AxisX && num <= DIObj_Slider_1 ) {
-		// �����^�ŕ���ł���̂Ŕz��Ƃ݂Ȃ��ď����B�X���C�_�[���ꏏ
+		// 同じ型で並んでいるので配列とみなして処理。スライダーも一緒
 		const LONG	*axis = &(state_.state.lX);
 		LONG	val = axis[num] + (-AXIS_RANGE_MIN);
 		return (double)val / (double)AXIS_RANGE;
@@ -664,18 +664,18 @@ double CDirectInputDevice::GetRightTrigger() const
 	int num = key_map_.trigger[DITMAP_NUM_RIGHT].obj_num;
 	return GetTriggerValue( num );
 }
-//! @param h : ����(����)���ǂ���
+//! @param h : 水平(横軸)かどうか
 double CDirectInputDevice::GetThumbStickValue( int num, int dir, bool h ) const
 {
 	if( num >= DIObj_AxisX || num <= DIObj_Slider_1 ) {
-		// �����^�ŕ���ł���̂Ŕz��Ƃ݂Ȃ��ď����B�X���C�_�[���ꏏ
+		// 同じ型で並んでいるので配列とみなして処理。スライダーも一緒
 		const LONG	*axis = &(state_.state.lX);
 		return GetAxisValue( axis[num], dir );
 	} else if( num >= DIObj_POV_0 && num <= DIObj_POV_3 ) {
 		int	idx = num - DIObj_POV_0;
 		DWORD pov = LOWORD(state_.state.rgdwPOV[idx]);
 		if( pov != 0xFFFF ) {
-			// ����0�x�ɂ��āA�����v���Ŋp�x���i�ނ悤�ɂ���B
+			// 左を0度にして、反時計回りで角度が進むようにする。
 			pov = (36000 - ((pov + 90000) % 36000)) % 36000;
 			if( h )
 				return cos( (pov * M_PI) / (100.0 * 180.0) );
@@ -1104,73 +1104,73 @@ void CDirectInputDevice::GetHIDDesc( WORD page, WORD id, std::wstring& pageName,
 		break;
 	case 0x0A:
 		pageName = L"Ordinal";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x0B:
 		pageName = L"Telephony";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x0C:
 		pageName = L"Consumer";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x0D:
 		pageName = L"Digitizer";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x0F:
 		pageName = L"PID Page USB Physical Interface Device definitions for force feedback and related devices.";
-		usage = L"Unknown";	// �����ɂȂ�
+		usage = L"Unknown";	// 資料にない
 		break;
 	case 0x10:
 		pageName = L"Unicode";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x14:
 		pageName = L"Alphanumeric Display";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x40:
 		pageName = L"Medical Instruments";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x80:
 	case 0x81:
 	case 0x82:
 	case 0x83:
 		pageName = L"Monitor pages USB Device Class Definition for Monitor Devices";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x84:
 	case 0x85:
 	case 0x86:
 	case 0x87:
 		pageName = L"Power pages USB Device Class Definition for Power Devices";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x8C:
 		pageName = L"Bar Code Scanner page";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x8D:
 		pageName = L"Scale page";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x8E:
 		pageName = L"Magnetic Stripe Reading (MSR) Devices";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x8F:
 		pageName = L"Reserved Point of Sale pages USB Device Class Definition for Point of Sale Devices";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x90:
 		pageName = L"Camera Control Page USB Device Class Defin";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	case 0x91:
 		pageName = L"Arcade Page OAAF Definitions for arcade and coinop related Devices";
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	default:
 		if( page >= 0xFF00 && page <= 0xFFFF ) {
@@ -1178,7 +1178,7 @@ void CDirectInputDevice::GetHIDDesc( WORD page, WORD id, std::wstring& pageName,
 		} else {
 			pageName = L"Reserved";
 		}
-		usage = L"Usage not implemented";	// �����g��Ȃ��̂ŏ����ĂȂ�
+		usage = L"Usage not implemented";	// 多分使わないので書いてない
 		break;
 	}
 }

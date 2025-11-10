@@ -3,30 +3,30 @@
 @brief 
 
 -----------------------------------------------------------------------------
-	Copyright (C) 2008 Takenori Imoto (�䌳 ����). All rights reserved.
+	Copyright (C) 2008 Takenori Imoto (井元 武則). All rights reserved.
 	( http://www.kaede-software.com/ )
 -----------------------------------------------------------------------------
 @author		T.Imoto
 @date		2008/01/11
 @note
 
-�\�[�X�R�[�h�`���ł���o�C�i���`���ł���A�ύX�̗L���Ɋւ�炸�A�ȉ��̏�����
-��������ɂ����āA�Ĕz�z����юg�p�������܂�:
+ソースコード形式であれバイナリ形式であれ、変更の有無に関わらず、以下の条件を満
+たす限りにおいて、再配布および使用を許可します:
 
-   1. �\�[�X�R�[�h�`���ōĔz�z����ꍇ�A��L���쌠�\���A�{����������щ��L�ӔC
-      ����K���K���܂߂Ă��������B
-   2. �o�C�i���`���ōĔz�z����ꍇ�A��L���쌠�\���A�{����������щ��L�ӔC����
-      �K����A�z�z���ƂƂ��ɒ񋟂���镶������ё��̎����ɕK���܂߂Ă��������B
+   1. ソースコード形式で再配布する場合、上記著作権表示、本条件書および下記責任
+      限定規定を必ず含めてください。
+   2. バイナリ形式で再配布する場合、上記著作権表示、本条件書および下記責任限定
+      規定を、配布物とともに提供される文書および他の資料に必ず含めてください。
 
-�{�\�t�g�E�F�A�͒��쌠�҂ɂ���āA�h����̂܂܁h�񋟂������̂Ƃ��܂��B�{�\�t
-�g�E�F�A�ɂ��ẮA�����َ����킸�A���p�i�Ƃ��Ēʏ킻�Ȃ���ׂ��i�������Ȃ�
-�Ă���Ƃ̕ۏ؂��A����̖ړI�ɓK������Ƃ̕ۏ؂��܂߁A���̕ۏ؂��Ȃ���܂���B
-���R�̂�������킸�A���Q�����̌�����������킸�A���A�ӔC�̍������_��ł�
-�邩���i�ӔC�ł��邩 (�ߎ����̑�) �s�@�s�ׂł��邩���킸�A���쌠�҂͉��ɂ���
-�悤�ȑ��Q����������\����m�炳��Ă����Ƃ��Ă��A�{�\�t�g�E�F�A�̎g�p���甭
-���������ڑ��Q�A�Ԑڑ��Q�A�����I�ȑ��Q�A���ʑ��Q�A�����I���Q�܂��͌��ʑ��Q�̂�
-����ɑ΂��Ă� (��֕i�܂��� �T�[�r�X�̒�;�g�p�@��A�f�[�^�܂��͗��v�̑�����
-�⏞; �܂��́A�Ɩ��̒��f�ɑ΂���⏞���܂�)�ӔC���������������܂���B
+本ソフトウェアは著作権者によって、”現状のまま”提供されるものとします。本ソフ
+トウェアについては、明示黙示を問わず、商用品として通常そなえるべき品質をそなえ
+ているとの保証も、特定の目的に適合するとの保証を含め、何の保証もなされません。
+事由のいかんを問わず、損害発生の原因いかんを問わず、且つ、責任の根拠が契約であ
+るか厳格責任であるか (過失その他) 不法行為であるかを問わず、著作権者は仮にその
+ような損害が発生する可能性を知らされていたとしても、本ソフトウェアの使用から発
+生した直接損害、間接損害、偶発的な損害、特別損害、懲罰的損害または結果損害のい
+ずれに対しても (代替品または サービスの提供;使用機会、データまたは利益の損失の
+補償; または、業務の中断に対する補償を含め)責任をいっさい負いません。
 
 *****************************************************************************/
 
@@ -44,58 +44,58 @@ enum InputDeviceType {
 	IDT_DirectInputFF = 2,
 	IDT_DirectInput = 3,
 };
-// �{�^���n�̃t���O�́AXInput�Ɠ����ɂ��Ă���
+// ボタン系のフラグは、XInputと同じにしてある
 enum InputDeviceButtonFlag {
-	IDBTN_DPAD_UP			= 0x00000001,	// �\���L�[ ��
-	IDBTN_DPAD_DOWN			= 0x00000002,	// �\���L�[ ��
-	IDBTN_DPAD_LEFT			= 0x00000004,	// �\���L�[ ��
-	IDBTN_DPAD_RIGHT		= 0x00000008,	// �\���L�[ �E
+	IDBTN_DPAD_UP			= 0x00000001,	// 十字キー 上
+	IDBTN_DPAD_DOWN			= 0x00000002,	// 十字キー 下
+	IDBTN_DPAD_LEFT			= 0x00000004,	// 十字キー 左
+	IDBTN_DPAD_RIGHT		= 0x00000008,	// 十字キー 右
 	IDBTN_START				= 0x00000010,	// START
 	IDBTN_BACK				= 0x00000020,	// BACK
-	IDBTN_LEFT_THUMB		= 0x00000040,	// ���T���{�^��
-	IDBTN_RIGHT_THUMB		= 0x00000080,	// �E�T���{�^��
-	IDBTN_LEFT_SHOULDER		= 0x00000100,	// �����{�^��
-	IDBTN_RIGHT_SHOULDER	= 0x00000200,	// �E���{�^��
-	IDBTN_A					= 0x00001000,	// A�{�^��
-	IDBTN_B					= 0x00002000,	// B�{�^��
-	IDBTN_X					= 0x00004000,	// X�{�^��
-	IDBTN_Y					= 0x00008000,	// Y�{�^��
-	IDBTN_LEFT_THUMB_AXIS_X	= 0x00010000,	// ���A�i���OX��
-	IDBTN_LEFT_THUMB_AXIS_Y	= 0x00020000,	// ���A�i���OY��
-	IDBTN_RIGHT_THUMB_AXIS_X= 0x00040000,	// �E�A�i���OX��
-	IDBTN_RIGHT_THUMB_AXIS_Y= 0x00080000,	// �E�A�i���OY��
-	IDBTN_LEFT_TRIGGER		= 0x00100000,	// ���g���K�[
-	IDBTN_RIGHT_TRIGGER		= 0x00200000,	// �E�g���K�[
+	IDBTN_LEFT_THUMB		= 0x00000040,	// 左サムボタン
+	IDBTN_RIGHT_THUMB		= 0x00000080,	// 右サムボタン
+	IDBTN_LEFT_SHOULDER		= 0x00000100,	// 左肩ボタン
+	IDBTN_RIGHT_SHOULDER	= 0x00000200,	// 右肩ボタン
+	IDBTN_A					= 0x00001000,	// Aボタン
+	IDBTN_B					= 0x00002000,	// Bボタン
+	IDBTN_X					= 0x00004000,	// Xボタン
+	IDBTN_Y					= 0x00008000,	// Yボタン
+	IDBTN_LEFT_THUMB_AXIS_X	= 0x00010000,	// 左アナログX軸
+	IDBTN_LEFT_THUMB_AXIS_Y	= 0x00020000,	// 左アナログY軸
+	IDBTN_RIGHT_THUMB_AXIS_X= 0x00040000,	// 右アナログX軸
+	IDBTN_RIGHT_THUMB_AXIS_Y= 0x00080000,	// 右アナログY軸
+	IDBTN_LEFT_TRIGGER		= 0x00100000,	// 左トリガー
+	IDBTN_RIGHT_TRIGGER		= 0x00200000,	// 右トリガー
 	IDBTN_EOT
 };
 
 enum InputDeviceButtonNum {
-	IDBTN_NUM_DPAD_UP			= 0,	// �\���L�[ ��
-	IDBTN_NUM_DPAD_DOWN			= 1,	// �\���L�[ ��
-	IDBTN_NUM_DPAD_LEFT			= 2,	// �\���L�[ ��
-	IDBTN_NUM_DPAD_RIGHT		= 3,	// �\���L�[ �E
+	IDBTN_NUM_DPAD_UP			= 0,	// 十字キー 上
+	IDBTN_NUM_DPAD_DOWN			= 1,	// 十字キー 下
+	IDBTN_NUM_DPAD_LEFT			= 2,	// 十字キー 左
+	IDBTN_NUM_DPAD_RIGHT		= 3,	// 十字キー 右
 	IDBTN_NUM_START				= 4,	// START
 	IDBTN_NUM_BACK				= 5,	// BACK
-	IDBTN_NUM_LEFT_THUMB		= 6,	// ���T���{�^��
-	IDBTN_NUM_RIGHT_THUMB		= 7,	// �E�T���{�^��
-	IDBTN_NUM_LEFT_SHOULDER		= 8,	// �����{�^��
-	IDBTN_NUM_RIGHT_SHOULDER	= 9,	// �E���{�^��
-	IDBTN_NUM_A					= 12,	// A�{�^��
-	IDBTN_NUM_B					= 13,	// B�{�^��
-	IDBTN_NUM_X					= 14,	// X�{�^��
-	IDBTN_NUM_Y					= 15,	// Y�{�^��
-	IDBTN_NUM_LEFT_THUMB_AXIS_X	= 16,	// ���A�i���OX��
-	IDBTN_NUM_LEFT_THUMB_AXIS_Y	= 17,	// ���A�i���OY��
-	IDBTN_NUM_RIGHT_THUMB_AXIS_X= 18,	// �E�A�i���OX��
-	IDBTN_NUM_RIGHT_THUMB_AXIS_Y= 19,	// �E�A�i���OY��
-	IDBTN_NUM_LEFT_TRIGGER		= 20,	// ���g���K�[
-	IDBTN_NUM_RIGHT_TRIGGER		= 21,	// �E�g���K�[
+	IDBTN_NUM_LEFT_THUMB		= 6,	// 左サムボタン
+	IDBTN_NUM_RIGHT_THUMB		= 7,	// 右サムボタン
+	IDBTN_NUM_LEFT_SHOULDER		= 8,	// 左肩ボタン
+	IDBTN_NUM_RIGHT_SHOULDER	= 9,	// 右肩ボタン
+	IDBTN_NUM_A					= 12,	// Aボタン
+	IDBTN_NUM_B					= 13,	// Bボタン
+	IDBTN_NUM_X					= 14,	// Xボタン
+	IDBTN_NUM_Y					= 15,	// Yボタン
+	IDBTN_NUM_LEFT_THUMB_AXIS_X	= 16,	// 左アナログX軸
+	IDBTN_NUM_LEFT_THUMB_AXIS_Y	= 17,	// 左アナログY軸
+	IDBTN_NUM_RIGHT_THUMB_AXIS_X= 18,	// 右アナログX軸
+	IDBTN_NUM_RIGHT_THUMB_AXIS_Y= 19,	// 右アナログY軸
+	IDBTN_NUM_LEFT_TRIGGER		= 20,	// 左トリガー
+	IDBTN_NUM_RIGHT_TRIGGER		= 21,	// 右トリガー
 	IDBTN_NUM_EOT
 };
 
 class CInputDevicePort;
 
-// �f�o�C�X�̃��\�b�h���`����C���^�[�t�F�C�X�N���X
+// デバイスのメソッドを定義するインターフェイスクラス
 class IInputDevice
 {
 public:

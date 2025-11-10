@@ -10,23 +10,23 @@
 @date		2008/01/21
 @note
 
-�\�[�X�R�[�h�`���ł���o�C�i���`���ł���A�ύX�̗L���Ɋւ�炸�A�ȉ��̏�����
-��������ɂ����āA�Ĕz�z����юg�p�������܂�:
+ソースコード形式であれバイナリ形式であれ、変更の有無に関わらず、以下の条件を満
+たす限りにおいて、再配布および使用を許可します:
 
-   1. �\�[�X�R�[�h�`���ōĔz�z����ꍇ�A��L���쌠�\���A�{����������щ��L�ӔC
-      ����K���K���܂߂Ă��������B
-   2. �o�C�i���`���ōĔz�z����ꍇ�A��L���쌠�\���A�{����������щ��L�ӔC����
-      �K����A�z�z���ƂƂ��ɒ񋟂���镶������ё��̎����ɕK���܂߂Ă��������B
+   1. ソースコード形式で再配布する場合、上記著作権表示、本条件書および下記責任
+      限定規定を必ず含めてください。
+   2. バイナリ形式で再配布する場合、上記著作権表示、本条件書および下記責任限定
+      規定を、配布物とともに提供される文書および他の資料に必ず含めてください。
 
-�{�\�t�g�E�F�A�͒��쌠�҂ɂ���āA�h����̂܂܁h�񋟂������̂Ƃ��܂��B�{�\�t
-�g�E�F�A�ɂ��ẮA�����َ����킸�A���p�i�Ƃ��Ēʏ킻�Ȃ���ׂ��i�������Ȃ�
-�Ă���Ƃ̕ۏ؂��A����̖ړI�ɓK������Ƃ̕ۏ؂��܂߁A���̕ۏ؂��Ȃ���܂���B
-���R�̂�������킸�A���Q�����̌�����������킸�A���A�ӔC�̍������_��ł�
-�邩���i�ӔC�ł��邩 (�ߎ����̑�) �s�@�s�ׂł��邩���킸�A���쌠�҂͉��ɂ���
-�悤�ȑ��Q����������\����m�炳��Ă����Ƃ��Ă��A�{�\�t�g�E�F�A�̎g�p���甭
-���������ڑ��Q�A�Ԑڑ��Q�A�����I�ȑ��Q�A���ʑ��Q�A�����I���Q�܂��͌��ʑ��Q�̂�
-����ɑ΂��Ă� (��֕i�܂��� �T�[�r�X�̒�;�g�p�@��A�f�[�^�܂��͗��v�̑�����
-�⏞; �܂��́A�Ɩ��̒��f�ɑ΂���⏞���܂�)�ӔC���������������܂���B
+本ソフトウェアは著作権者によって、”現状のまま”提供されるものとします。本ソフ
+トウェアについては、明示黙示を問わず、商用品として通常そなえるべき品質をそなえ
+ているとの保証も、特定の目的に適合するとの保証を含め、何の保証もなされません。
+事由のいかんを問わず、損害発生の原因いかんを問わず、且つ、責任の根拠が契約であ
+るか厳格責任であるか (過失その他) 不法行為であるかを問わず、著作権者は仮にその
+ような損害が発生する可能性を知らされていたとしても、本ソフトウェアの使用から発
+生した直接損害、間接損害、偶発的な損害、特別損害、懲罰的損害または結果損害のい
+ずれに対しても (代替品または サービスの提供;使用機会、データまたは利益の損失の
+補償; または、業務の中断に対する補償を含め)責任をいっさい負いません。
 
 *****************************************************************************/
 
@@ -42,12 +42,12 @@
 
 namespace gamepad {
 
-//! �{�^���⎲�̑Ή���\��
-//! Slider �̏󋵂ɂ���Ă͕ύX���邩��
+//! ボタンや軸の対応を表す
+//! Slider の状況によっては変更するかも
 struct DirectInputObjectMap
 {
 	int		obj_num;
-	int		direction;	// �������]���Ă��鎞�� -1�A�����łȂ����� 1�BPOV �� �{�^���̎��͈Ӗ��Ȃ�
+	int		direction;	// 軸が反転している時は -1、そうでない時は 1。POV や ボタンの時は意味なし
 };
 
 enum DirectInputObjectNum {
@@ -100,20 +100,20 @@ enum DirectInputObjectNum {
 };
 
 enum DirectInputButtonMapNum {
-	DIBMAP_NUM_DPAD_UP			= 0,	// �\���L�[ ��
-	DIBMAP_NUM_DPAD_DOWN		= 1,	// �\���L�[ ��
-	DIBMAP_NUM_DPAD_LEFT		= 2,	// �\���L�[ ��
-	DIBMAP_NUM_DPAD_RIGHT		= 3,	// �\���L�[ �E
+	DIBMAP_NUM_DPAD_UP			= 0,	// 十字キー 上
+	DIBMAP_NUM_DPAD_DOWN		= 1,	// 十字キー 下
+	DIBMAP_NUM_DPAD_LEFT		= 2,	// 十字キー 左
+	DIBMAP_NUM_DPAD_RIGHT		= 3,	// 十字キー 右
 	DIBMAP_NUM_START			= 4,	// START
 	DIBMAP_NUM_BACK				= 5,	// BACK
-	DIBMAP_NUM_LEFT_THUMB		= 6,	// ���T���{�^��
-	DIBMAP_NUM_RIGHT_THUMB		= 7,	// �E�T���{�^��
-	DIBMAP_NUM_LEFT_SHOULDER	= 8,	// �����{�^��
-	DIBMAP_NUM_RIGHT_SHOULDER	= 9,	// �E���{�^��
-	DIBMAP_NUM_A				= 10,	// A�{�^��
-	DIBMAP_NUM_B				= 11,	// B�{�^��
-	DIBMAP_NUM_X				= 12,	// X�{�^��
-	DIBMAP_NUM_Y				= 13,	// Y�{�^��
+	DIBMAP_NUM_LEFT_THUMB		= 6,	// 左サムボタン
+	DIBMAP_NUM_RIGHT_THUMB		= 7,	// 右サムボタン
+	DIBMAP_NUM_LEFT_SHOULDER	= 8,	// 左肩ボタン
+	DIBMAP_NUM_RIGHT_SHOULDER	= 9,	// 右肩ボタン
+	DIBMAP_NUM_A				= 10,	// Aボタン
+	DIBMAP_NUM_B				= 11,	// Bボタン
+	DIBMAP_NUM_X				= 12,	// Xボタン
+	DIBMAP_NUM_Y				= 13,	// Yボタン
 	DIBMAP_NUM_EOT
 };
 
@@ -123,16 +123,16 @@ enum DirectInputTriggerMapNum {
 	DITMAP_NUM_EOT
 };
 enum DirectInputAxisMapNum {
-	DIAMAP_NUM_LX = 0,		// ���X�e�B�b�NX��
-	DIAMAP_NUM_LY = 1,		// ���X�e�B�b�NY��
-	DIAMAP_NUM_RX = 2,		// �E�X�e�B�b�NX��
-	DIAMAP_NUM_RY = 3,		// �E�X�e�B�b�NY��
+	DIAMAP_NUM_LX = 0,		// 左スティックX軸
+	DIAMAP_NUM_LY = 1,		// 左スティックY軸
+	DIAMAP_NUM_RX = 2,		// 右スティックX軸
+	DIAMAP_NUM_RY = 3,		// 右スティックY軸
 	DIAMAP_NUM_EOT
 };
 
 struct DirectInputObjectMappingTable
 {
-	DirectInputObjectMap	button[DIBMAP_NUM_EOT];	// �\���L�[�ƃ{�^��
+	DirectInputObjectMap	button[DIBMAP_NUM_EOT];	// 十字キーとボタン
 	DirectInputObjectMap	trigger[DITMAP_NUM_EOT];
 	DirectInputObjectMap	axis[DIAMAP_NUM_EOT];
 	bool					leftforcefirst;
@@ -171,7 +171,7 @@ protected:
 	};
 	struct DirectInputState {
 		DIJOYSTATE	state;
-		BYTE		dummy[4];	//!< �_�~�[�z��BDIJOYSTATE �̃{�^���z��𒴂��ăA�N�Z�X���Ă������ɂȂ�悤�ɂ���
+		BYTE		dummy[4];	//!< ダミー配列。DIJOYSTATE のボタン配列を超えてアクセスしてもここになるようにする
 	};
 
 	DirectInputObjects		enable_objs_;
@@ -179,19 +179,19 @@ protected:
 
 	CComPtr<IDirectInputDevice8>	device_;
 
-	WORD	vendor_id_;		//!< �x���_�[ID
-	WORD	product_id_;	//!< �v���_�N�gID
+	WORD	vendor_id_;		//!< ベンダーID
+	WORD	product_id_;	//!< プロダクトID
 
-	GUID	instance_guid_;	//!< �C���X�^���XID �Đ������鎞�ɕK�v
+	GUID	instance_guid_;	//!< インスタンスID 再生成する時に必要
 
 	DirectInputState	state_;
 
-	DirectInputObjectMappingTable	key_map_;	//!< �e�{�^���Ȃǂ̊��蓖��
+	DirectInputObjectMappingTable	key_map_;	//!< 各ボタンなどの割り当て
 
-	bool		device_creating_;	//!< �f�o�C�X�̍Đ��������ǂ���
+	bool		device_creating_;	//!< デバイスの再生成中かどうか
 	bool		request_poll_method_;
 
-	std::wstring	physical_port_name_;	//!< �ڑ�����Ă���|�[�g�̖��O
+	std::wstring	physical_port_name_;	//!< 接続されているポートの名前
 
 	static const long		AXIS_RANGE_MAX = +32767;
 	static const long		AXIS_RANGE_MIN = -32768;
@@ -219,13 +219,13 @@ protected:
 
 	void RecreateDevice();
 
-	//! �S�ẴL�[�������ɂȂ�悤�ɐݒ肷��
+	//! 全てのキーが無効になるように設定する
 	void ClearKeyMap();
 
-	//! HID �� page �� usage �𓾂�
+	//! HID の page と usage を得る
 	void GetHIDDesc( WORD page, WORD id, std::wstring& pageName, std::wstring& usage );
 
-	// POV �l���牟����Ă��邩�ǂ����𔻒肷��
+	// POV 値から押されているかどうかを判定する
 	static inline bool IsPressUpForPovVal( DWORD pov ) {
 		return ( ( pov >= 0 && pov < 9000 ) || ( pov > 27000 && pov <= 36000 ) );
 	}
@@ -238,10 +238,10 @@ protected:
 	double GetThumbStickValue( int num, int dir, bool h ) const;
 	double GetTriggerValue( int num ) const;
 
-	//! �o���邾���p�b�h�ɍ����L�[�}�b�s���O���s��
+	//! 出来るだけパッドに合うキーマッピングを行う
 	void DoAutoKeyMapping();
 
-	//! Force Feedback Device�̐ݒ�𔽉f����
+	//! Force Feedback Deviceの設定を反映する
 	virtual bool UpdateFF() { return true; }
 public:
 	CDirectInputDevice( IDirectInputDevice8* input, CInputDevicePort* port );
@@ -261,13 +261,13 @@ public:
 	virtual double GetRightThumbStickX() const;
 	virtual double GetRightThumbStickY() const;
 
-	//! ��t�H�[�X�t�B�[�h�o�b�N�f�o�C�X�Ƀo�C�u�͂Ȃ�
+	//! 非フォースフィードバックデバイスにバイブはない
 	virtual void SetLeftVibration( double val ) {}
 	virtual void SetRightVibration( double val ) {}
 
 	virtual unsigned long Sensing() const;
 
-	// DirectInput �p
+	// DirectInput 用
 //	virtual int StartSensingRow( bool multikey );
 //	virtual unsigned long SensingRow() const;
 
@@ -283,8 +283,8 @@ public:
 	virtual int GetTriggerMapping( int id );
 	virtual bool GetLeftForceFirst();
 
-	//! �w�肳�ꂽ�L�[�̃}�b�s���O�����݂�
-	// ���Ƀ{�^����ݒ肷�鎞�ȂǓ���ȃG���[�R�[�h���`����K�v����
+	//! 指定されたキーのマッピングを試みる
+	// 軸にボタンを設定する時など特殊なエラーコードを定義する必要あり
 	virtual int SensingMapping( int id, int dir );
 #endif
 };

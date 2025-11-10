@@ -1,6 +1,6 @@
 /****************************************************************************/
 /*! @file
-@brief �Q�[���p�b�h�|�[�g
+@brief ゲームパッドポート
 
 -----------------------------------------------------------------------------
 	Copyright (C) 2008 Takenori Imoto. All rights reserved.
@@ -10,23 +10,23 @@
 @date		2008/01/21
 @note
 
-�\�[�X�R�[�h�`���ł���o�C�i���`���ł���A�ύX�̗L���Ɋւ�炸�A�ȉ��̏�����
-��������ɂ����āA�Ĕz�z����юg�p�������܂�:
+ソースコード形式であれバイナリ形式であれ、変更の有無に関わらず、以下の条件を満
+たす限りにおいて、再配布および使用を許可します:
 
-   1. �\�[�X�R�[�h�`���ōĔz�z����ꍇ�A��L���쌠�\���A�{����������щ��L�ӔC
-      ����K���K���܂߂Ă��������B
-   2. �o�C�i���`���ōĔz�z����ꍇ�A��L���쌠�\���A�{����������щ��L�ӔC����
-      �K����A�z�z���ƂƂ��ɒ񋟂���镶������ё��̎����ɕK���܂߂Ă��������B
+   1. ソースコード形式で再配布する場合、上記著作権表示、本条件書および下記責任
+      限定規定を必ず含めてください。
+   2. バイナリ形式で再配布する場合、上記著作権表示、本条件書および下記責任限定
+      規定を、配布物とともに提供される文書および他の資料に必ず含めてください。
 
-�{�\�t�g�E�F�A�͒��쌠�҂ɂ���āA�h����̂܂܁h�񋟂������̂Ƃ��܂��B�{�\�t
-�g�E�F�A�ɂ��ẮA�����َ����킸�A���p�i�Ƃ��Ēʏ킻�Ȃ���ׂ��i�������Ȃ�
-�Ă���Ƃ̕ۏ؂��A����̖ړI�ɓK������Ƃ̕ۏ؂��܂߁A���̕ۏ؂��Ȃ���܂���B
-���R�̂�������킸�A���Q�����̌�����������킸�A���A�ӔC�̍������_��ł�
-�邩���i�ӔC�ł��邩 (�ߎ����̑�) �s�@�s�ׂł��邩���킸�A���쌠�҂͉��ɂ���
-�悤�ȑ��Q����������\����m�炳��Ă����Ƃ��Ă��A�{�\�t�g�E�F�A�̎g�p���甭
-���������ڑ��Q�A�Ԑڑ��Q�A�����I�ȑ��Q�A���ʑ��Q�A�����I���Q�܂��͌��ʑ��Q�̂�
-����ɑ΂��Ă� (��֕i�܂��� �T�[�r�X�̒�;�g�p�@��A�f�[�^�܂��͗��v�̑�����
-�⏞; �܂��́A�Ɩ��̒��f�ɑ΂���⏞���܂�)�ӔC���������������܂���B
+本ソフトウェアは著作権者によって、”現状のまま”提供されるものとします。本ソフ
+トウェアについては、明示黙示を問わず、商用品として通常そなえるべき品質をそなえ
+ているとの保証も、特定の目的に適合するとの保証を含め、何の保証もなされません。
+事由のいかんを問わず、損害発生の原因いかんを問わず、且つ、責任の根拠が契約であ
+るか厳格責任であるか (過失その他) 不法行為であるかを問わず、著作権者は仮にその
+ような損害が発生する可能性を知らされていたとしても、本ソフトウェアの使用から発
+生した直接損害、間接損害、偶発的な損害、特別損害、懲罰的損害または結果損害のい
+ずれに対しても (代替品または サービスの提供;使用機会、データまたは利益の損失の
+補償; または、業務の中断に対する補償を含め)責任をいっさい負いません。
 
 *****************************************************************************/
 
@@ -175,7 +175,7 @@ void CInputDevicePort::InitializeControllers( HWND hWnd )
 
 	long	xinput_ret = CXInputDevice::InitializeXInput();
 	if( xinput_ret ) {
-		// �ǂꂪ�Ȃ����Ă��邩�`�F�b�N
+		// どれがつながっているかチェック
 		if( xinput_ret & CXInputDevice::UserIndex0 )
 			PutTempControllers( new CXInputDevice(0,const_cast<CInputDevicePort*>(this)) );
 		if( xinput_ret & CXInputDevice::UserIndex1 )
@@ -186,19 +186,19 @@ void CInputDevicePort::InitializeControllers( HWND hWnd )
 			PutTempControllers( new CXInputDevice(3,const_cast<CInputDevicePort*>(this)) );
 	}
 
-	// Direct Input DLL �̓ǂݍ��݂� DirectInput �̐���
+	// Direct Input DLL の読み込みと DirectInput の生成
 	InitializeDirectInput();
 
 	if( xinput_ret ) {
-		// XInput �f�o�C�X���Ȃ����Ă��鎞�́ADirectInput �̌�����
-		// XInput������������Ȃ��悤�Ƀf�o�C�X���������A�񋓎��`�F�b�N����
+		// XInput デバイスがつながっている時は、DirectInput の検索で
+		// XInputが引っかからないようにデバイスを検索し、列挙時チェックする
 		FindXInputDevice();
 	}
 
-	// �R���g���[���p�l�� - �Q�[���R���g���[���ŗD��f�o�C�X�ɐݒ肳��Ă�����̂� GUID ���擾���Ă���
+	// コントロールパネル - ゲームコントローラで優先デバイスに設定されているものの GUID を取得しておく
 	GetPreferredDevice();
 
-	// DirectInput �f�o�C�X���������ă��X�g�ɓ����
+	// DirectInput デバイスを検索してリストに入れる
 	FindDirectInputDevice();
 
 	InitializeAllDevice( hWnd );
@@ -210,7 +210,7 @@ void CInputDevicePort::InitializeAllDevice( HWND hWnd )
 		std::list<IInputDevice*>::iterator cur = i;
 		++i;
 		if( !ret ) {
-			// �f�o�C�X�̏������Ɏ��s�B���s�����f�o�C�X�̓��X�g����폜
+			// デバイスの初期化に失敗。失敗したデバイスはリストから削除
 			delete (*cur);
 			controllers_.erase( cur );
 		}
@@ -274,12 +274,12 @@ bool CInputDevicePort::EnumDevicesCallback( const DIDEVICEINSTANCE* pInst )
 		return false;
 	}
 
-	// XInput Device �͂����ł͉����Ȃ�
+	// XInput Device はここでは加えない
 	if( IsXInputDevice( pInst->guidProduct ) ) {
 		return true;
 	}
 
-	// �D��f�o�C�X���ǂ����̔���
+	// 優先デバイスかどうかの判定
 	bool	is_preferred_device = ( is_valid_preferred_device_guid_ && IsEqualGUID( pInst->guidInstance, preferred_device_guid_ ) );
 
 	HRESULT					hr;
@@ -296,7 +296,7 @@ bool CInputDevicePort::EnumDevicesCallback( const DIDEVICEINSTANCE* pInst )
 			if( !is_preferred_device ) {
 				PutTempControllers( device );
 			} else {
-				// �D��f�o�C�X�̓��X�g�̐擪�ɓ����
+				// 優先デバイスはリストの先頭に入れる
 				PutTempControllersFront( device );
 			}
 		}
@@ -335,7 +335,7 @@ bool CInputDevicePort::InsertDeviceToPort( int num, IInputDevice* device )
 	return false;
 }
 */
-//! �R���g���[���p�l�� - �Q�[���R���g���[���ŗD��f�o�C�X�ɐݒ肳��Ă���W���C�X�e�B�b�N��GUID�𓾂�
+//! コントロールパネル - ゲームコントローラで優先デバイスに設定されているジョイスティックのGUIDを得る
 void CInputDevicePort::GetPreferredDevice()
 {
 	DIJOYCONFIG		PreferredJoyCfg = {0};
@@ -349,15 +349,15 @@ void CInputDevicePort::GetPreferredDevice()
 	}
 
 	PreferredJoyCfg.dwSize = sizeof(PreferredJoyCfg);
-	// ���̃��\�b�h��Joystick���Ȃ����Ă��Ȃ��Ǝ��s����
+	// このメソッドはJoystickがつながっていないと失敗する
 	if( SUCCEEDED( pJoyConfig->GetConfig(0, &PreferredJoyCfg, DIJC_GUIDINSTANCE ) ) ) {
 		is_valid_preferred_device_guid_ = true;
 		preferred_device_guid_ = PreferredJoyCfg.guidInstance;
 	}
 }
 
-// XInput �f�o�C�X���������āAVID��PID��ێ����Ă���
-// XInput �f�o�C�X�̌����ɂ� WMI ���g�p���Ă���
+// XInput デバイスを検索して、VIDとPIDを保持しておく
+// XInput デバイスの検索には WMI を使用している
 bool CInputDevicePort::FindXInputDevice()
 {
 	HRESULT	hr;
@@ -430,7 +430,7 @@ bool CInputDevicePort::FindXInputDevice()
 		return true;
 	}
 }
-//! XInput �f�o�C�X���ǂ����`�F�b�N����
+//! XInput デバイスかどうかチェックする
 bool CInputDevicePort::IsXInputDevice( const GUID& guidProduct ) const
 {
 	for( std::list<DWORD>::const_iterator i = xinput_vid_pids_.begin(); i != xinput_vid_pids_.end(); ++i ) {
