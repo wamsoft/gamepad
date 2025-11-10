@@ -97,15 +97,15 @@ bool xinput::Initialize()
 bool xinput::CheckLoading()
 {
 	if( dll_.IsLoaded() == false ) {
-		dll_.Load( "xinput1_3.dll" );
+		dll_.Load( L"xinput1_3.dll" );
 	}
 // 古いのも試す？
 #if 0
 	if( dll_.IsLoaded() == false ) {
-		dll_.Load( "xinput1_2.dll" );
+		dll_.Load( L"xinput1_2.dll" );
 	}
 	if( dll_.IsLoaded() == false ) {
-		dll_.Load( "xinput1_1.dll" );
+		dll_.Load( L"xinput1_1.dll" );
 	}
 #endif
 	return dll_.IsLoaded();

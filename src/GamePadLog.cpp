@@ -74,7 +74,7 @@ bool quartz::Initialize()
 bool quartz::CheckLoading()
 {
 	if( dll_.IsLoaded() == false ) {
-		dll_.Load( "quartz.dll" );
+		dll_.Load( L"quartz.dll" );
 	}
 	return dll_.IsLoaded();
 }

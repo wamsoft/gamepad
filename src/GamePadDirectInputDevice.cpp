@@ -43,6 +43,9 @@
 #define _USE_MATH_DEFINES 
 #include <cmath> 
 
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 namespace gamepad {
 
 
@@ -64,10 +67,8 @@ bool CDirectInputDevice::EnumObjectsCallback( const DIDEVICEOBJECTINSTANCE* pdid
 	HRESULT hr;
 
 	// オブジェクト名書き出し
-	std::wstring	objName;
-	if( EncodeToUTF16( objName, std::string(pdidoi->tszName) ) ) {
-		Log( (std::wstring(L"[ ") + objName + std::wstring(L" ]")).c_str() );
-	}
+	std::wstring objName = std::wstring(pdidoi->tszName);
+	Log( (std::wstring(L"[ ") + objName + std::wstring(L" ]")).c_str() );
 
 	// タイプチェック
 	std::wstringstream typeStr;
@@ -407,12 +408,11 @@ bool CDirectInputDevice::InitializeDeviceDetail()
 
 	instance_guid_ = inspector_.GetInstanceGuid();
 
-	std::string name;
+	std::wstring name;
 	inspector_.GetProductName( name );
-	EncodeToUTF16( name_, name );
 
 	std::wstringstream stream;
-	stream << L"Game Pad Device Name : " << name_;
+	stream << L"Game Pad Device Name : " << name;
 	Log( stream.str().c_str() );
 
 	RetrieveVendorAndProductID();

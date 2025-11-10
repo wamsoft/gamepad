@@ -30,6 +30,10 @@ add_library(${PROJECT_NAME} SHARED
     src/GamePadUtil.cpp
 )
 
+target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)   
+
 target_link_libraries(${PROJECT_NAME} PUBLIC
     tp_stub
 )

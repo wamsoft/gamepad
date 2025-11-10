@@ -59,7 +59,7 @@ static iTJSDispatch2 * Create_NC_GamepadPort()
 			TJS_GET_NATIVE_INSTANCE(/*var. name*/_this, /*var. type*/NI_GamepadPort);
 
 			if( numparams < 1 ) return TJS_E_BADPARAMCOUNT;
-			_this->port_.InitializeControllers( (HWND)(tjs_int)*param[0] );
+			_this->port_.InitializeControllers( (HWND)(tjs_intptr_t)*param[0] );
 			return TJS_S_OK;
 
 		} TJS_END_NATIVE_METHOD_DECL(/*func. name*/initialize)
@@ -77,7 +77,7 @@ static iTJSDispatch2 * Create_NC_GamepadPort()
 					iTJSDispatch2 *dispatch = varScripts.AsObjectNoAddRef();
 
 					tTJSVariant val;
-					val = tTJSVariant( (tjs_int)device );
+					val = tTJSVariant( (tjs_intptr_t)device );
 					tTJSVariant *varsp[1] = {&val};
 					iTJSDispatch2 *instance = NULL;
 //					if( SUCCEEDED( dispatch->CreateNew( 0, NULL, NULL, &instance, 0, NULL, _this))) {
@@ -192,7 +192,7 @@ static iTJSDispatch2 * Create_NC_Gamepad()
 
 			if( numparams < 1 ) return TJS_E_BADPARAMCOUNT;
 
-			_this->device_ = (gamepad::IInputDevice*)(tjs_int)*param[0];
+			_this->device_ = (gamepad::IInputDevice*)(tjs_intptr_t)*param[0];
 			return TJS_S_OK;
 
 		} TJS_END_NATIVE_CONSTRUCTOR_DECL(/*TJS class name*/Gamepad)
