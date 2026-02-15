@@ -1,7 +1,4 @@
 //---------------------------------------------------------------------------
-#ifndef NO_V2LINK
-#include <windows.h>
-#endif
 #include "tp_stub.h"
 #include "GamePadInputDevicePort.h"
 #include "GamePadInputDevice.h"
